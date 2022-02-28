@@ -42,7 +42,7 @@ params:
   # Author biography
   bio: Global invoicing for developers.
   # Site Description, used in HTML meat
-  description: An open source JSON schema, Go library, global tax database, and toolset built for developers.
+  description: Create electronic business documents with an open source Go library, JSON Schema, global tax database, and toolset built for developers.
 
 
   ###########################################
