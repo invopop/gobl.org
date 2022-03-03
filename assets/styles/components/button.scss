@@ -1,0 +1,22 @@
+.btn {
+  background-color: $blue;
+  border-radius: 6px;
+  padding: 12px 24px;
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 19px;
+  color: $navy;
+
+  transition: background-color 0.2s ease-in-out;
+
+  &:after {
+    content: "→";
+    margin-left: 6px;
+  }
+
+  &:hover {
+    background-color: $paleblue;
+    color: $navy;
+  }
+}

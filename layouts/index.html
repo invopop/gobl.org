@@ -1,47 +1,60 @@
 {{ define "main" }}
-{{ partial "profile.html" . }}
 
-<div id="list-page">
-    {{ $pages := .Site.RegularPages }}
-    {{ $paginator := .Paginate ($pages) }}
-    {{ range $paginator.Pages }}
-        {{ $title := .Title }}
-        {{ $summary := .Summary }}
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='{{ .RelPermalink }}'>{{ $title }}</a></h1>
-            <div class ="date">
-                <time datetime="{{ .PublishDate }}">{{ i18n "publishDate" . }}</time>  
-            </div>
-          </div>
+<div>
+	<h1>Electronic business documents for the modern developer.</h1>
 
-          {{ if ne .Site.Params.hiddenPostSummaryInHomePage true }}
-              <div class="summary">{{ $summary | plainify | htmlUnescape }}</div>
-          {{ end }}
+	<p class="text-paleblue">
+		GOBL is an open-source schema, library, and database that simplifies the creation of invoices around the world.
+	</p>
 
-        </section>
-    {{ end }}
-
-    {{ if or ($paginator.HasPrev) ($paginator.HasNext) }}
-        <div class="pagination">
-          {{ if $paginator.HasPrev }}
-              <span class="prev">
-                  <a href="{{.Paginator.Prev.URL}}">
-                      <span class="arrow">←</span> {{ with .Site.Params.newerPosts }}{{ . }}{{ else }}{{ i18n "postsNewer" }}{{ end }}
-                  </a>
-            </span>
-          {{ end }}
-          
-          {{ if $paginator.HasNext }}
-              <span class="next">
-                  <a href="{{.Paginator.Next.URL}}">
-                      {{ with .Site.Params.olderPosts }}{{ . }}{{ else }}{{ i18n "postsOlder" }}{{ end }} <span class="arrow">→</span>
-                  </a>
-              </span>
-          {{ end }}
-        </div>
-    {{ end }}
-
-
+	<a class="btn" href="https://docs.gobl.org/">Learn more</a>
 </div>
+
+<div>
+	<h2>
+		Staggering amounts of time are wasted dealing with inefficient paper documents and archaic electronic formats.
+	</h2>
+
+	<div>
+		<p>
+			Businesses have to manually extract data from paper receipts and PDFs which don't contain structured data.
+		</p>
+		<p>
+			Standards like XML and Text formats don't reflect the way our programming languages store or transfer data.
+		</p>
+		<p>
+			It's hard to understand the rules, types of taxes, and general formats required in any given market.
+		</p>
+	</div>
+
+	<p>
+		Dealing with this on a global scale is
+		<mark>
+			just a <span class="line-through">fucking</span> nightmare!
+		</mark>
+	</p>
+</div>
+
+<div>
+	<h2>Simple, structured, and easy to share.</h2>
+
+	<p>
+		We envision a future where everything we sell and buy generates a structured electronic document that can be sent and read by any platform around the world.
+	</p>
+
+	<h3>
+		<a href="https://docs.gobl.org/">Read the docs</a>
+	</h3>
+
+	<h3>
+		<a href="https://www.invopop.com/contact/" target="_blank">
+			Contribute on GitHub
+		</a>
+	</h3>
+
+	<h3>
+		<a href="/posts">See what's new</a>
+	</h3>
+</div>
+
 {{ end }}

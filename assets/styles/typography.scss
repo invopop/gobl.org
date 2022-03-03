@@ -70,3 +70,17 @@ a {
     color: $paleblue;
   }
 }
+
+mark {
+  background: none;
+  color: $blue;
+  font-weight: 600;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.text-paleblue {
+  color: $paleblue;
+}

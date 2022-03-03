@@ -6,6 +6,10 @@
 @import 'typography';
 @import 'theme';
 
+// Components
+@import 'components/button';
+
+// Partials
 @import 'partials/navigation';
 
 body {
