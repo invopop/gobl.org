@@ -16,5 +16,13 @@ body {
   margin: 0;
   background-image: url('/images/background.svg'), linear-gradient(207.28deg, #040421 33.08%, #141432 100%);
   background-repeat: no-repeat;
-  background-size: 100% 100vh, 100%;
+  background-size: auto 100vh, 100%;
+
+  @include desktop {
+    background-size: 100% 100vh, 100%;
+  }
+}
+
+.main {
+  @include max-width-page;
 }

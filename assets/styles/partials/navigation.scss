@@ -1,15 +1,21 @@
-nav.navigation {
+.navigation {
   position: sticky;
   top: 0;
 
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 0;
+  nav {
+    @include max-width-page;
 
-  @include desktop {
-    padding: 19px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    @include desktop {
+      padding-top: 19px;
+      padding-bottom: 19px;
+    }
   }
 
   img {

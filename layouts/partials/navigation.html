@@ -1,10 +1,12 @@
-<nav class="navigation">
-	<a href="/">
-		{{- $image := resources.Get "images/logo.svg" -}}
-		<img class="logo" alt="GOBL.org logo" src="{{ $image.RelPermalink }}" />
-	</a>
+<div class="navigation">
+	<nav>
+		<a href="/">
+			{{- $image := resources.Get "images/logo.svg" -}}
+			<img class="logo" alt="GOBL.org logo" src="{{ $image.RelPermalink }}" />
+		</a>
 
-	<a href="https://docs.gobl.org/">
-		Read the Docs →
-	</a>
-</nav>
+		<a href="https://docs.gobl.org/">
+			Read the Docs →
+		</a>
+	</nav>
+</div>
