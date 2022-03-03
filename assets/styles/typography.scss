@@ -1,3 +1,30 @@
+@mixin font-face($name, $weight) {
+  @font-face {
+    font-family: "Suisse Int'l";
+    font-weight: $weight;
+    font-display: swap;
+
+    src: url('/fonts/suisse/SuisseIntl-#{$name}.woff2') format('woff2'),
+      url('/fonts/suisse/SuisseIntl-#{$name}.woff') format('woff');
+  }
+}
+
+$weights: (
+  Ultralight: 100,
+  Thin: 200,
+  Light: 300,
+  Regular: 400,
+  Book: 500,
+  Medium: 600,
+  SemiBold: 700,
+  Bold: 800,
+  Black: 900
+);
+
+@each $name, $weight in $weights {
+  @include font-face($name, $weight);
+}
+
 body {
   background-color: $navy;
   color: $grey;
