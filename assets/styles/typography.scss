@@ -1,0 +1,63 @@
+body {
+  line-height: 1;
+  font: normal 15px/1.5em 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #404040;
+  line-height: 1.75;
+  letter-spacing: 0.008em;
+}
+
+a {
+  text-decoration: none;
+  color: #5badf0;
+}
+
+a:hover {
+  color: #0366d6;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+p {
+  margin-block-start: 1.5em;
+  margin-block-end: 1.5em;
+}
+p,
+pre {
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a { 
+  visibility: visible
+}
+.highlight pre {
+  padding: 7px;
+  overflow-x: auto;
+}
+
+.highlight {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.profile h1 {
+  font-weight: 400;
+  letter-spacing: 0px;
+  font-size: 20px;
+  color: #404040;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.profile h2 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #757575;
+  margin-top: 0;
+}
