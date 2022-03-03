@@ -34,5 +34,11 @@ h3 {
 }
 
 a {
+  color: $blue;
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: $paleblue;
+  }
 }
