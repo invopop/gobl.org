@@ -8,16 +8,21 @@
 
 // Components
 @import 'components/button';
+@import 'components/list';
 
 // Partials
 @import 'partials/navigation';
 @import 'partials/footer';
+
+// Pages
+@import 'pages/home';
 
 body {
   margin: 0;
   background-image: url('/images/background.svg'), linear-gradient(207.28deg, #040421 33.08%, #141432 100%);
   background-repeat: no-repeat;
   background-size: auto 100vh, 100%;
+  min-height: 100vh;
 
   @include desktop {
     background-size: 100% 100vh, 100%;

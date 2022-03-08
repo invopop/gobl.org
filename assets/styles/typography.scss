@@ -5,20 +5,20 @@
     font-display: swap;
 
     src: url('/fonts/suisse/SuisseIntl-#{$name}.woff2') format('woff2'),
-      url('/fonts/suisse/SuisseIntl-#{$name}.woff') format('woff');
+    url('/fonts/suisse/SuisseIntl-#{$name}.woff') format('woff');
   }
 }
 
 $weights: (
-  Ultralight: 100,
-  Thin: 200,
-  Light: 300,
-  Regular: 400,
-  Book: 500,
-  Medium: 600,
-  SemiBold: 700,
-  Bold: 800,
-  Black: 900
+Ultralight: 100,
+Thin: 200,
+Light: 300,
+Regular: 400,
+Book: 500,
+Medium: 600,
+SemiBold: 700,
+Bold: 800,
+Black: 900
 );
 
 @each $name, $weight in $weights {
@@ -33,25 +33,35 @@ body {
   line-height: 25px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, p {
   // TODO
   // font-family: 'Alliance No.2', sans-serif;
   font-weight: 400;
+  margin: 0;
 }
 
 h1 {
-  font-size: 36px;
-  line-height: 43px;
+  font-size: 32px;
+  line-height: 38px;
+  margin-bottom: 16px;
 
   @include desktop {
     font-size: 42px;
     line-height: 50px;
+    margin-bottom: 24px;
   }
 }
 
 h2 {
-  font-size: 30px;
-  line-height: 38px;
+  font-size: 24px;
+  line-height: 28px;
+  margin-bottom: 32px;
+
+  @include desktop {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 24px;
+  }
 }
 
 h3 {

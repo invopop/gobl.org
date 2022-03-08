@@ -16,45 +16,6 @@ hr {
   background: #eee;
 }
 
-table {
-  width: 100%;
-  margin: 40px 0;
-  border-collapse: collapse;
-  line-height: 1.5em;
-}
-
-th, td {
-  text-align: left;
-  padding-right: 20px;
-  vertical-align: top;
-}
-
-table td, td {
-  border-spacing: none;
-  border-style: solid;
-  padding: 10px 15px;
-  border-width: 1px 0 0 0;
-}
-thead th, th {
-  text-align: left;
-  padding: 10px 15px;
-  height: 20px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #444;
-  cursor: default;
-  white-space: nowrap;
-  border: 1px solid #dadadc;
-}
-
-tr>td {
-  border: 1px solid #dadadc;
-}
-
-tr:nth-child(odd)>td {
-  background: #fcfcfc;
-}
-
 .markdown-image img {
   max-width: 100%;
 }

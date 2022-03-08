@@ -1,0 +1,33 @@
+#home {
+  .intro {
+    h1, p {
+      max-width: 630px;
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: 56px;
+    }
+  }
+
+  .issues {
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+
+      @include desktop {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 54px;
+        margin-bottom: 54px;
+      }
+    }
+  }
+
+  .next-steps {
+    p {
+      margin-bottom: 32px;
+    }
+  }
+}

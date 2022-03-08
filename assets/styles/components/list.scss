@@ -1,0 +1,14 @@
+dl {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @include desktop {
+    gap: 40px;
+  }
+
+  dt {
+    @extend h3;
+  }
+}

@@ -1,7 +1,7 @@
 {{ define "main" }}
-<main>
+<main id="home">
 	<div class="scroll-snap">
-		<div>
+		<div class="intro">
 			<h1>Electronic business documents for the modern developer.</h1>
 
 			<p class="text-paleblue">
@@ -11,12 +11,12 @@
 			<a class="btn" href="https://docs.gobl.org/">Learn more</a>
 		</div>
 
-		<div>
+		<div class="issues">
 			<h2>
 				Staggering amounts of time are wasted dealing with inefficient paper documents and archaic electronic formats.
 			</h2>
 
-			<div>
+			<div class="columns">
 				<p>
 					Businesses have to manually extract data from paper receipts and PDFs which don't contain structured data.
 				</p>
@@ -36,27 +36,31 @@
 			</p>
 		</div>
 
-		<div>
+		<div class="next-steps">
 			<h2>Simple, structured, and easy to share.</h2>
 
 			<p>
 				We envision a future where everything we sell and buy generates a structured electronic document that can be sent and read by any platform around the world.
 			</p>
 
-			<h3>
-				<a href="https://docs.gobl.org/">Read the docs</a>
-			</h3>
-
-			<h3>
-				<a href="https://www.invopop.com/contact/" target="_blank">
-					Contribute on GitHub
-				</a>
-			</h3>
-
-			<h3>
-				<a href="/posts">See what's new</a>
-			</h3>
+			<dl>
+				<dt>
+					<a href="https://docs.gobl.org/">
+						Read the docs
+					</a>
+				</dt>
+				<dt>
+					<a href="https://www.invopop.com/contact/" target="_blank">
+						Contribute on GitHub
+					</a>
+				</dt>
+				<dt>
+					<a href="/posts">
+						See what's new
+					</a>
+				</dt>
+			</dl>
 		</div>
-		</div>
-	</main>
+	</div>
+</main>
 {{ end }}
