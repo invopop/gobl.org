@@ -33,8 +33,8 @@ body {
   line-height: 25px;
 }
 
-h1, h2, h3, p {
-  // TODO
+h1, h2, h3, h4, p {
+  // TODO for headers
   // font-family: 'Alliance No.2', sans-serif;
   font-weight: 400;
   margin: 0;
@@ -68,6 +68,12 @@ h3 {
   color: $blue;
   font-size: 19px;
   line-height: 23px;
+}
+
+h4 {
+  color: $paleblue;
+  font-size: 14px;
+  line-height: 17px;
 }
 
 a {
