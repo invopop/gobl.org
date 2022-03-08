@@ -24,43 +24,46 @@ body {
   }
 }
 
-// TODO: set bottom spacing to footer height
-main {
-  height: 100vh;
-  box-sizing: border-box;
-  padding: $menu-height-mobile  0;
-
-  overflow: hidden;
-
-  @include desktop {
-    padding: $menu-height-desktop  0;
+@include mobile {
+  .scrollable-content {
+    position: fixed;
+    top: $menu-height-mobile;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
   }
 }
 
-.scroll-snap {
-  height: calc(100vh - (2 * #{$menu-height-mobile}));
-  overflow: auto;
-
-  @include desktop {
-    height: calc(100vh - (2 * #{$menu-height-desktop}));
-    scroll-snap-type: y proximity;
+@include desktop {
+  main {
+    height: 100vh;
+    box-sizing: border-box;
+    padding: $menu-height-desktop 0 $footer-height-desktop;
+    overflow: hidden;
   }
 
-  > div {
-    @include max-width-page;
+  .scroll-snap {
+    overflow: auto;
+    height: calc(100vh - #{$menu-height-desktop} - #{$footer-height-desktop});
+    scroll-snap-type: y proximity;
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-
-    min-height: 100%;
-    padding: 0 $offset-x;
-    margin-bottom: 80px;
-
-    @include desktop {
+    > div {
       scroll-snap-align: start;
       margin-bottom: 120px;
     }
   }
+}
+
+.scroll-snap > div {
+  @include max-width-page;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  min-height: 100%;
+  padding: 0 $offset-x;
+  margin-bottom: 80px;
 }

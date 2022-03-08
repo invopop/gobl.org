@@ -1,8 +1,61 @@
 footer {
   @include max-width-page;
+  padding-top: 20px;
+  padding-bottom: 40px;
 
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+
+  @include desktop {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: $footer-height-desktop;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  a {
+    color: $paleblue;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  svg {
+    height: 20px;
+    fill: currentColor;
+  }
+
+  .copyright {
+    font-size: 15px;
+    color: $paleblue;
+
+    span {
+      display: block;
+
+      @include desktop {
+        display: inline;
+
+        &:after {
+          content: '—';
+        }
+      }
+    }
+  }
 }

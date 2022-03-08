@@ -26,15 +26,6 @@ markup:
     ordered: false
     startLevel: 2
 
-# Social links in footer, support github,twitter,stackoverflow,facebook
-social:
-  # e.g.
-  github: https://github.com/invopop
-  twitter: https://twitter.com/goInvopop
-  # stackoverflow: your-github-link
-  # facebook: your-facebook-link
-
-
 # Site parameters
 params:
   # Site Author

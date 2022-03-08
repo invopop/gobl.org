@@ -11,9 +11,11 @@
   <div class="page">
     {{ partial "navigation.html" . }}
 
-    {{ block "main" . }}{{ end }}
+    <div class="scrollable-content">
+      {{ block "main" . }}{{ end }}
 
-    {{ partial "footer.html" . }}
+      {{ partial "footer.html" . }}
+    </div>
   </div>
 </body>
 </html>
