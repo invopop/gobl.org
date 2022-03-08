@@ -73,13 +73,13 @@ body {
   }
 }
 
-.no-snap, .scroll-snap {
-  > div {
-    @include max-width-page;
-  }
+.no-snap > div {
+  @include max-width-page;
+  padding-bottom: 80px;
 }
 
 .scroll-snap > div {
+  @include max-width-page;
   display: flex;
   flex-direction: column;
   align-items: flex-start;

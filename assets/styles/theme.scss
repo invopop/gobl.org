@@ -39,6 +39,9 @@ p code {
 pre code {
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
 }
+pre {
+  overflow: auto;
+}
 
 /* toc */
 .toc {
