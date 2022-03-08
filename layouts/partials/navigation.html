@@ -5,8 +5,12 @@
 			<img class="logo" alt="GOBL.org logo" src="{{ $image.RelPermalink }}" />
 		</a>
 
-		<a href="https://docs.gobl.org/">
-			Read the Docs →
-		</a>
+		<div class="links">
+			{{ if ne .IsHome true }}
+			<a href="/">Home</a>
+			{{ end }}
+
+			<a href="https://docs.gobl.org/">Read the Docs&nbsp;→</a>
+		</div>
 	</nav>
 </div>
