@@ -1,6 +1,8 @@
 .navigation {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
 
   nav {
     @include max-width-page;
@@ -9,12 +11,11 @@
     gap: 20px;
     align-items: center;
     justify-content: space-between;
-    padding-top: 16px;
-    padding-bottom: 16px;
+
+    height: $menu-height-mobile;
 
     @include desktop {
-      padding-top: 19px;
-      padding-bottom: 19px;
+      height: $menu-height-desktop;
     }
   }
 

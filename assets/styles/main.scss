@@ -11,6 +11,7 @@
 
 // Partials
 @import 'partials/navigation';
+@import 'partials/footer';
 
 body {
   margin: 0;
@@ -23,6 +24,43 @@ body {
   }
 }
 
-.main {
-  @include max-width-page;
+// TODO: set bottom spacing to footer height
+main {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: $menu-height-mobile  0;
+
+  overflow: hidden;
+
+  @include desktop {
+    padding: $menu-height-desktop  0;
+  }
+}
+
+.scroll-snap {
+  height: calc(100vh - (2 * #{$menu-height-mobile}));
+  overflow: auto;
+
+  @include desktop {
+    height: calc(100vh - (2 * #{$menu-height-desktop}));
+    scroll-snap-type: y proximity;
+  }
+
+  > div {
+    @include max-width-page;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    min-height: 100%;
+    padding: 0 $offset-x;
+    margin-bottom: 80px;
+
+    @include desktop {
+      scroll-snap-align: start;
+      margin-bottom: 120px;
+    }
+  }
 }

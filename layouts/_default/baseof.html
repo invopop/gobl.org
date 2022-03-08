@@ -2,19 +2,17 @@
 <html lang="{{ $.Site.LanguageCode | default "en" }}">
 <head>
   <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
-  
+
   {{ partial "head.html" . }}
-  
+
 </head>
 
 <body>
   <div class="page">
     {{ partial "navigation.html" . }}
-    
-    <main class="main">
-      {{ block "main" . }}{{ end }}
-    </main>
-    
+
+    {{ block "main" . }}{{ end }}
+
     {{ partial "footer.html" . }}
   </div>
 </body>
