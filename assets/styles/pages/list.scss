@@ -1,0 +1,17 @@
+#list {
+  h1 {
+    margin: 60px 0;
+  }
+
+  .key {
+    color: $grey;
+  }
+
+  a {
+    color: $grey;
+
+    &:hover {
+      color: $paleblue;
+    }
+  }
+}

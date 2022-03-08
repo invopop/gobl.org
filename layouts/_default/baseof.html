@@ -4,7 +4,6 @@
   <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
 
   {{ partial "head.html" . }}
-
 </head>
 
 <body>
@@ -12,7 +11,15 @@
     {{ partial "navigation.html" . }}
 
     <div class="scrollable-content">
-      {{ block "main" . }}{{ end }}
+      <main>
+        {{ if ne .IsHome true }}
+        <div class="no-snap">
+          {{ block "main" . }}{{ end }}
+        </div>
+        {{ else }}
+        {{ block "main" . }}{{ end }}
+        {{ end }}
+      </main>
 
       {{ partial "footer.html" . }}
     </div>

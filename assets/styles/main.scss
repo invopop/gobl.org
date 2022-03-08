@@ -8,7 +8,7 @@
 
 // Components
 @import 'components/button';
-@import 'components/list';
+@import 'components/dl';
 
 // Partials
 @import 'partials/navigation';
@@ -16,6 +16,7 @@
 
 // Pages
 @import 'pages/home';
+@import 'pages/list';
 
 body {
   margin: 0;
@@ -37,6 +38,14 @@ body {
     left: 0;
     right: 0;
     overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    main {
+      flex: 1;
+    }
   }
 }
 
@@ -46,11 +55,14 @@ body {
     box-sizing: border-box;
     padding: $menu-height-desktop 0 $footer-height-desktop;
     overflow: hidden;
+
+    > div:first-child {
+      overflow: auto;
+      height: calc(100vh - #{$menu-height-desktop} - #{$footer-height-desktop});
+    }
   }
 
   .scroll-snap {
-    overflow: auto;
-    height: calc(100vh - #{$menu-height-desktop} - #{$footer-height-desktop});
     scroll-snap-type: y proximity;
 
     > div {
@@ -60,9 +72,13 @@ body {
   }
 }
 
-.scroll-snap > div {
-  @include max-width-page;
+.no-snap, .scroll-snap {
+  > div {
+    @include max-width-page;
+  }
+}
 
+.scroll-snap > div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

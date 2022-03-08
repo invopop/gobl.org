@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div id="list">
+	<h1>{{ .Title }}</h1>
+	
+	{{ range .Data.Pages.GroupByDate "2006" }}
+	<dl>
+		<dt class="key">{{ .Key }}</dt>
+		
+		{{ range .Pages }}
+		<dt>{{ i18n "publishDateShort" . }}</dt>
+		<dd>
+			<a href="{{ .Permalink }}">{{ .Title }}</a>
+		</dd>
+		{{ end }}
+	</dl>
+	{{ end }}
+</div>
+{{ end }}

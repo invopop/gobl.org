@@ -1,0 +1,39 @@
+dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+
+  @include desktop {
+    grid-template-columns: auto 1fr;
+
+    dt {
+      grid-column: 1;
+    }
+
+    dd {
+      grid-column: 2;
+    }
+  }
+
+  dt {
+    color: $blue;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  &.large {
+    gap: 32px;
+
+     @include desktop {
+    row-gap: 40px;
+    column-gap: 80px;
+  }
+
+    dt {
+      @extend h3;
+    }
+  }
+}
