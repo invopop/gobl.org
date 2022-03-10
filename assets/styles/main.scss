@@ -20,14 +20,20 @@
 @import 'pages/single';
 
 body {
+  $gradient: linear-gradient(207.28deg, #040421 33.08%, #141432 100%);
+
   margin: 0;
-  background-image: url('/images/background.svg'), linear-gradient(207.28deg, #040421 33.08%, #141432 100%);
-  background-repeat: no-repeat;
-  background-size: auto 100vh, 100%;
+  background-image: $gradient;
   min-height: 100vh;
 
-  @include desktop {
-    background-size: 100% 100vh, 100%;
+  &.graphic-bg {
+    background-image: url('/images/background.svg'), $gradient;
+    background-repeat: no-repeat;
+    background-size: auto 100vh, 100%;
+
+    @include desktop {
+      background-size: 100% 100vh, 100%;
+    }
   }
 }
 

@@ -6,7 +6,7 @@
   {{ partial "head.html" . }}
 </head>
 
-<body>
+<body {{ if .IsHome }}class="graphic-bg"{{ end }}>
   <div class="page">
     {{ partial "navigation.html" . }}
 
