@@ -12,13 +12,7 @@
 
     <div class="scrollable-content">
       <main>
-        {{ if ne .IsHome true }}
-        <div class="no-snap">
-          {{ block "main" . }}{{ end }}
-        </div>
-        {{ else }}
         {{ block "main" . }}{{ end }}
-        {{ end }}
       </main>
 
       {{ partial "footer.html" . }}

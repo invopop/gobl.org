@@ -31,61 +31,28 @@ body {
   }
 }
 
-@include mobile {
-  .scrollable-content {
-    position: fixed;
-    top: $menu-height-mobile;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: auto;
-
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-
-    main {
-      flex: 1;
-    }
-  }
+div {
+  box-sizing: border-box;
 }
 
-@include desktop {
-  main {
-    height: 100vh;
-    box-sizing: border-box;
-    padding: $menu-height-desktop 0 $footer-height-desktop;
-    overflow: hidden;
+.scrollable-content {
+  position: fixed;
+  top: $menu-height-mobile;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
 
-    > div:first-child {
-      overflow: auto;
-      height: calc(100vh - #{$menu-height-desktop} - #{$footer-height-desktop});
-    }
-  }
-
-  .scroll-snap {
-    scroll-snap-type: y proximity;
-
-    > div {
-      scroll-snap-align: start;
-      margin-bottom: 120px;
-    }
-  }
-}
-
-.no-snap > div {
-  @include max-width-page;
-  padding-bottom: 80px;
-}
-
-.scroll-snap > div {
-  @include max-width-page;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  gap: 24px;
 
-  min-height: 75vh;
-  padding: 0 $offset-x;
-  margin-bottom: 120px;
+  @include desktop {
+    top: $menu-height-desktop;
+  }
+
+  main {
+    @include max-width-page;
+    flex: 1;
+  }
 }

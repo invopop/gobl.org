@@ -14,6 +14,7 @@ $breakpoint: 768px;
 
 @mixin max-width-page {
   max-width: 920px;
+  width: 100%;
   margin: 0 auto;
   padding-left: $offset-x;
   padding-right: $offset-x;
