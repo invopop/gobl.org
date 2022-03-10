@@ -21,8 +21,7 @@
 {{ $style := $sass | resources.ToCSS }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 
-
-<link rel="shortcut icon" href="{{ "/favicon.ico" | relURL }}" type="image/x-icon" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
 
 {{ if .OutputFormats.Get "RSS" }}
   {{ with .OutputFormats.Get "RSS" }}
