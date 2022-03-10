@@ -1,38 +1,28 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+
+<title>GOBL</title>
+<meta name="description" content="Electronic business documents for the modern developer.">
+
+<meta property="og:title" content="GOBL" />
+<meta property="og:description" content="Electronic business documents for the modern developer." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="{{ "/images/og-image.svg" | relURL }}" />
+
 {{ hugo.Generator }}
-{{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
 {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
-  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-{{ else }}
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  {{ else }}
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-{{ end }}
+    {{ end }}
 
 {{ $sass := resources.Get "styles/main.scss" }}
 {{ $style := $sass | resources.ToCSS }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 
-{{ range .Site.Params.customCSS }}
-  {{ if ( or ( hasPrefix . "http://" ) ( hasPrefix . "https://" ) ) }}
-    <!-- remote css -->
-    <link rel="stylesheet" href="{{ . }}">
-  {{ else }}
-    <!-- local css -->
-    <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
-  {{ end }}
-{{ end }}
 
 <link rel="shortcut icon" href="{{ "/favicon.ico" | relURL }}" type="image/x-icon" />
-
-{{ if .Site.Params.enableGoogleAnalytics }} 
-    {{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
-
-{{ if or .Params.math .Site.Params.math }}
-  {{ partial "math.html" . }}
-{{ end }}
 
 {{ if .OutputFormats.Get "RSS" }}
   {{ with .OutputFormats.Get "RSS" }}
