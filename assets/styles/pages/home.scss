@@ -52,6 +52,20 @@
         margin-bottom: 54px;
       }
     }
+
+    @include desktop {
+      h2 {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .solution {
+    @include desktop {
+      h2 {
+        margin-bottom: 40px;
+      }
+    }
   }
 
   .next-steps {

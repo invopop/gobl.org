@@ -25,12 +25,18 @@ dl {
   }
 
   &.large {
-    gap: 32px;
+    gap: 16px;
 
-     @include desktop {
-    row-gap: 40px;
-    column-gap: 80px;
-  }
+    @include desktop {
+      row-gap: 40px;
+      column-gap: 80px;
+    }
+
+    dd {
+      @include mobile {
+        margin-bottom: 24px;
+      }
+    }
 
     dt {
       @extend h3;
