@@ -7,7 +7,7 @@
 		<dt class="key">{{ .Key }}</dt>
 		
 		{{ range .Pages }}
-		<dt>{{ i18n "publishDateShort" . }}</dt>
+		<dt>{{ .PublishDate.Format "Jan 2" }}</dt>
 		<dd>
 			<a href="{{ .Permalink }}">{{ .Title }}</a>
 		</dd>

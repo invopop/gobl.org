@@ -4,9 +4,9 @@
   <h1>{{ .Title }}</h1>
   
   <div class="tip">
-    <h4>{{ i18n "publishDateFull" . }}</h4>
-    <h4>{{ i18n "wordCount" . }}</h4>
-    <h4>{{ i18n "minuteRead" . }}</h4>
+    <h4>{{ .PublishDate.Format "Jan 2, 2006" }}</h4>
+    <h4>{{ .WordCount }} words </h4>
+    <h4>{{ .ReadingTime }} minute read</h4>
   </div>
   
   <article>

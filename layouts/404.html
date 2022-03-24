@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div id="page-404">
+  <div class="text">
+    <h1>404 - Page Not Found</h1>
+    <p>The content you're looking for doesn't seem to exist.</p>
+  </div>
+
+  <dl>
+    {{ range .Site.RegularPages }}
+    <dt>{{ .PublishDate.Format "Jan 2" }}</dt>
+    <dd>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </dd>
+    {{ end }}
+  </dl>
+</div>
+{{ end }}
