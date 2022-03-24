@@ -28,16 +28,6 @@
     }
   }
 
-  .links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-
-    @include desktop {
-      gap: 32px;
-    }
-  }
-
   a {
     font-size: 15px;
     letter-spacing: 1px;

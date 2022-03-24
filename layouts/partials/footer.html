@@ -1,18 +1,28 @@
 <footer>
-	<div class="socials">
-		<a class="symbol" href="https://invopop.com/" target="_blank">
-			{{ partial "svgs/invopop.svg" }}
-		</a>
-
-		<a class="symbol" href="https://github.com/invopop" target="_blank">
-			{{ partial "svgs/github.svg" }}
-		</a>
-
-		<a class="symbol" href="https://twitter.com/goInvopop" target="_blank">
-			{{ partial "svgs/twitter.svg" }}
-		</a>
-	</div>
-
+	<nav>
+		<div class="internal">
+			{{ range .Site.Params.footer.nav }}
+			{{ $active := eq .url $.RelPermalink }}
+			<a href="{{ .url }}" class="{{ if $active }}active{{ end }}">{{ .title }}</a>
+			{{ end }}
+		</div>
+		
+		<div class="socials">
+			<a class="symbol" href="https://invopop.com/" target="_blank">
+				{{ partial "svgs/invopop.svg" }}
+			</a>
+			
+			<a class="symbol" href="https://github.com/invopop" target="_blank">
+				{{ partial "svgs/github.svg" }}
+			</a>
+			
+			<a class="symbol" href="https://twitter.com/goInvopop" target="_blank">
+				{{ partial "svgs/twitter.svg" }}
+			</a>
+		</div>
+	</nav>
+	
+	
 	<div class="copyright">
 		<span>
 			© {{ now.Year }} Invopop Ltd.

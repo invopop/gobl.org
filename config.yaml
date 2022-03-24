@@ -34,7 +34,12 @@ params:
   bio: Global invoicing for developers.
   # Site Description, used in HTML meat
   description: Create electronic business documents with an open source Go library, JSON Schema, global tax database, and toolset built for developers.
-
+  footer:
+    nav:
+      - title: Home
+        url: /
+      - title: Posts
+        url: /posts/
 
   ###########################################
   # Optional Configuration
