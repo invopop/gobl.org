@@ -3,17 +3,10 @@
     margin: 60px 0 16px;
   }
 
-  .tip {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
+  h4 {
     margin-bottom: 40px;
 
     @include desktop {
-      flex-direction: row;
-      gap: 24px;
-
       margin-bottom: 56px;
     }
   }
