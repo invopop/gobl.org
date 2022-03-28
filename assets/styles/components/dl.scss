@@ -43,3 +43,7 @@ dl {
     }
   }
 }
+
+dl + dl {
+  margin-top: 20px;
+}
