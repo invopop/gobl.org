@@ -1,13 +1,24 @@
 #single {
-  h1 {
-    margin: 60px 0 16px;
+  max-width: 605px;
+  padding-top: 20px;
+
+  @include desktop {
+    padding-top: 60px;
   }
 
-  h4 {
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  .article-info {
     margin-bottom: 40px;
 
+    display: flex;
+    flex-direction: column;
+    gap: 10px 16px;
+
     @include desktop {
-      margin-bottom: 56px;
+      flex-direction: row;
     }
   }
 }

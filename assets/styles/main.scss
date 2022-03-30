@@ -1,12 +1,10 @@
 // Ordered
 @import 'variables';
 @import 'mixins';
-
-// Other
 @import 'typography';
-@import 'theme';
 
 // Components
+@import 'components/article';
 @import 'components/button';
 @import 'components/dl';
 

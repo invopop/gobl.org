@@ -2,10 +2,14 @@
 
 <div id="single">
   <h1>{{ .Title }}</h1>
-  <h4>{{ .PublishDate.Format "Jan 2, 2006" }}</h4>
-  
+
+  <div class="article-info">
+    <h4>{{ .PublishDate.Format "Jan 2, 2006" }}</h4>
+    <h4>By {{ .Params.Author }}</h4>
+  </div>
+
   <article>
     {{ .Content }}
   </article>
+</div>
 {{ end }}
-
