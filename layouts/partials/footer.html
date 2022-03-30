@@ -8,17 +8,12 @@
 		</div>
 		
 		<div class="socials">
-			<a class="symbol" href="https://invopop.com/" target="_blank">
-				{{ partial "svgs/invopop.svg" }}
+			{{ range .Site.Params.footer.socials }}
+			<a class="symbol" href="{{ .url }}" target="_blank">
+				{{ $icon_path := printf "%s%s%s" "svgs/" .icon ".svg" }}
+				{{ partial $icon_path }}
 			</a>
-			
-			<a class="symbol" href="https://github.com/invopop" target="_blank">
-				{{ partial "svgs/github.svg" }}
-			</a>
-			
-			<a class="symbol" href="https://twitter.com/goInvopop" target="_blank">
-				{{ partial "svgs/twitter.svg" }}
-			</a>
+			{{ end }}
 		</div>
 	</nav>
 	

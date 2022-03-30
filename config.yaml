@@ -25,6 +25,13 @@ params:
         url: /
       - title: Posts
         url: /posts/
+    socials:
+      - icon: invopop
+        url: https://invopop.com
+      - icon: github
+        url: https://github.com/invopop
+      - icon: twitter
+        url: https://twitter.com/goInvopop
 
   ###########################################
   # Optional Configuration
