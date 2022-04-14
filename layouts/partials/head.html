@@ -22,7 +22,11 @@
 {{ $style := $sass | resources.ToCSS }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
+<link id="js-favicon" rel="icon" type="image/svg+xml" href="faviconDark.svg">
+
+{{ $favicon := resources.Get "js/favicon.js" | js.Build (dict "minify" true) }}
+<script defer src="{{ $favicon.RelPermalink }}"></script>
 
 {{ if .OutputFormats.Get "RSS" }}
   {{ with .OutputFormats.Get "RSS" }}
