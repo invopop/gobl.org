@@ -19,8 +19,9 @@ const (
 	goblSchemaPath = "../gobl/build/schemas"
 	schemaOutPath  = "./static/draft-0"
 
-	schemaDraft201909 = "https://json-schema.org/draft/2019-09/schema"
-	schemaDraft202012 = "https://json-schema.org/draft/2020-12/schema"
+	schemaDraft201909         = "https://json-schema.org/draft/2019-09/schema"
+	schemaDraft202012         = "https://json-schema.org/draft/2020-12/schema"
+	schemaDraft202012insecure = "http://json-schema.org/draft/2020-12/schema"
 )
 
 func Start() error {
@@ -71,7 +72,7 @@ func Schema() error {
 		}
 
 		// Revert to older schema supported by VSCode/Monaco
-		if err := replaceTextInFile(dst, schemaDraft202012, schemaDraft201909); err != nil {
+		if err := replaceTextInFile(dst, schemaDraft202012, schemaDraft202012insecure); err != nil {
 			return err
 		}
 
