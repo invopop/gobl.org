@@ -4,6 +4,7 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -17,6 +18,9 @@ const (
 	runImage       = "klakegg/hugo:0.80.0-ext-alpine"
 	goblSchemaPath = "../gobl/build/schemas"
 	schemaOutPath  = "./static/draft-0"
+
+	schemaDraft201909 = "https://json-schema.org/draft/2019-09/schema"
+	schemaDraft202012 = "https://json-schema.org/draft/2020-12/schema"
 )
 
 func Start() error {
@@ -65,8 +69,29 @@ func Schema() error {
 		if err := sh.Copy(dst, f); err != nil {
 			return err
 		}
+
+		// Revert to older schema supported by VSCode/Monaco
+		if err := replaceTextInFile(dst, schemaDraft202012, schemaDraft201909); err != nil {
+			return err
+		}
+
 		fmt.Printf("FILE: %v\n", dst)
 	}
+	return nil
+}
+
+func replaceTextInFile(file, str, replace string) error {
+	input, err := os.ReadFile(file)
+	if err != nil {
+		return fmt.Errorf("reading file contents: %w", err)
+	}
+
+	output := bytes.Replace(input, []byte(str), []byte(replace), 1)
+
+	if err := os.WriteFile(file, output, 0666); err != nil {
+		return fmt.Errorf("writing new file contents: %w", err)
+	}
+
 	return nil
 }
 
