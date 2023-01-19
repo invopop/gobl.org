@@ -6,24 +6,24 @@
     "Identity": {
       "properties": {
         "uuid": {
+          "$ref": "https://gobl.org/draft-0/uuid/uuid",
           "title": "UUID",
-          "description": "Unique universal identity code for this tax identity.",
-          "$ref": "https://gobl.org/draft-0/uuid/uuid"
+          "description": "Unique universal identity code for this tax identity."
         },
         "country": {
+          "$ref": "https://gobl.org/draft-0/l10n/country-code",
           "title": "Country Code",
-          "description": "ISO country code for Where the tax identity was issued.",
-          "$ref": "https://gobl.org/draft-0/l10n/country-code"
+          "description": "ISO country code for Where the tax identity was issued."
         },
         "zone": {
+          "$ref": "https://gobl.org/draft-0/l10n/code",
           "title": "Zone Code",
-          "description": "Where inside the country the tax identity holder is based for tax purposes\nlike a village, town, district, city, county, state or province. For some\nareas, this could be a regular post or zip code. See the regime packages\nfor specific validation rules.",
-          "$ref": "https://gobl.org/draft-0/l10n/code"
+          "description": "Where inside the country the tax identity holder is based for tax purposes\nlike a village, town, district, city, county, state or province. For some\nareas, this could be a regular post or zip code. See the regime packages\nfor specific validation rules."
         },
         "source": {
+          "$ref": "#/$defs/SourceKey",
           "title": "Source Key",
-          "description": "What is the source document of the tax identity.",
-          "$ref": "#/$defs/SourceKey"
+          "description": "What is the source document of the tax identity."
         },
         "code": {
           "type": "string",
@@ -31,9 +31,9 @@
           "description": "Normalized code shown on the original identity document."
         },
         "meta": {
+          "$ref": "https://gobl.org/draft-0/cbc/meta",
           "title": "Meta",
-          "description": "Additional details that may be required.",
-          "$ref": "https://gobl.org/draft-0/cbc/meta"
+          "description": "Additional details that may be required."
         }
       },
       "type": "object",
@@ -70,5 +70,5 @@
       "description": "SourceKey identifies the source of a tax identity"
     }
   },
-  "$comment": "Generated with GOBL v0.34.1"
+  "$comment": "Generated with GOBL v0.35.0"
 }
