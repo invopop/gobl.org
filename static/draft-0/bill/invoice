@@ -683,8 +683,7 @@
       },
       "type": "object",
       "required": [
-        "code",
-        "issue_date"
+        "code"
       ],
       "description": "Preceding allows for information to be provided about a previous invoice that this one will replace, subtract from, or add to."
     },
@@ -785,5 +784,5 @@
       "description": "Totals contains the summaries of all calculations for the invoice."
     }
   },
-  "$comment": "Generated with GOBL v0.38.0"
+  "$comment": "Generated with GOBL v0.39.0"
 }
