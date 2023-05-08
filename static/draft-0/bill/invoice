@@ -10,6 +10,11 @@
           "title": "UUID",
           "description": "Unique identifying for the discount entry"
         },
+        "key": {
+          "$ref": "https://gobl.org/draft-0/cbc/key",
+          "title": "Key",
+          "description": "Key for grouping or identifying charges for tax purposes."
+        },
         "i": {
           "type": "integer",
           "title": "Index",
@@ -75,17 +80,17 @@
         "date": {
           "$ref": "https://gobl.org/draft-0/cal/date",
           "title": "Date",
-          "description": "When the goods should be expected"
+          "description": "When the goods should be expected."
         },
-        "start_date": {
-          "$ref": "https://gobl.org/draft-0/cal/date",
-          "title": "Start Date",
-          "description": "Start of an invoicing or delivery period"
+        "period": {
+          "$ref": "https://gobl.org/draft-0/cal/period",
+          "title": "Period",
+          "description": "Period of time in which to expect delivery if a specific date is not available."
         },
-        "end_date": {
-          "$ref": "https://gobl.org/draft-0/cal/date",
-          "title": "End Date",
-          "description": "End of an invoicing or delivery period"
+        "meta": {
+          "$ref": "https://gobl.org/draft-0/cbc/meta",
+          "title": "Meta",
+          "description": "Additional custom data."
         }
       },
       "type": "object",
@@ -202,22 +207,27 @@
           "oneOf": [
             {
               "const": "standard",
+              "title": "Standard",
               "description": "A regular commercial invoice document between a supplier and customer."
             },
             {
               "const": "proforma",
+              "title": "Proforma",
               "description": "For a clients validation before sending a final invoice."
             },
             {
               "const": "corrective",
+              "title": "Corrective",
               "description": "Corrected invoice that completely replaces the preceding document."
             },
             {
               "const": "credit-note",
+              "title": "Credit Note",
               "description": "Reflects a refund either partial or complete of the preceding document."
             },
             {
               "const": "debit-note",
+              "title": "Debit Note",
               "description": "An additional set of charges to be added to the preceding document."
             }
           ],
@@ -495,6 +505,11 @@
           "title": "Code",
           "description": "Identifier assigned by the customer or buyer for internal routing purposes."
         },
+        "period": {
+          "$ref": "https://gobl.org/draft-0/cal/period",
+          "title": "Period",
+          "description": "Period of time that the invoice document refers to often used in addition to the details\nprovided in the individual line items."
+        },
         "project": {
           "$ref": "#/$defs/DocumentReference",
           "title": "Project",
@@ -512,10 +527,12 @@
         },
         "sale": {
           "$ref": "#/$defs/DocumentReference",
+          "title": "Sales Order",
           "description": "Sales order issued by the supplier or seller."
         },
         "receiving": {
           "$ref": "#/$defs/DocumentReference",
+          "title": "Receiving Advice",
           "description": "Receiving Advice."
         },
         "despatch": {
@@ -525,6 +542,7 @@
         },
         "tender": {
           "$ref": "#/$defs/DocumentReference",
+          "title": "Tender Advice",
           "description": "Tender advice, the identification of the call for tender or lot the invoice relates to."
         },
         "buyer": {
@@ -784,5 +802,5 @@
       "description": "Totals contains the summaries of all calculations for the invoice."
     }
   },
-  "$comment": "Generated with GOBL v0.39.0"
+  "$comment": "Generated with GOBL v0.42.4"
 }
