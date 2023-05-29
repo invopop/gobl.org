@@ -7,10 +7,10 @@
       "type": "string",
       "maxLength": 24,
       "minLength": 1,
-      "pattern": "^[A-Z0-9]+$",
+      "pattern": "^[A-Z0-9]+(\\.?[A-Z0-9]+)*$",
       "title": "Code",
       "description": "Alphanumerical text identifier with upper-case letters, no whitespace, nor symbols."
     }
   },
-  "$comment": "Generated with GOBL v0.42.8"
+  "$comment": "Generated with GOBL v0.50.1"
 }
