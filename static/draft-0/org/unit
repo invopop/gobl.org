@@ -90,6 +90,18 @@
           "description": "Pieces"
         },
         {
+          "const": "item",
+          "description": "Items"
+        },
+        {
+          "const": "service",
+          "description": "Service Units"
+        },
+        {
+          "const": "activity",
+          "description": "Activity"
+        },
+        {
           "const": "bag",
           "description": "Bags"
         },
@@ -207,5 +219,5 @@
       "description": "Unit describes how the quantity of the product should be interpreted."
     }
   },
-  "$comment": "Generated with GOBL v0.50.1"
+  "$comment": "Generated with GOBL v0.53.0"
 }

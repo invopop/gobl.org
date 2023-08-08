@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gobl.org/draft-0/org/telephone",
-  "$ref": "#/$defs/Telephone",
+  "$id": "https://gobl.org/draft-0/org/website",
+  "$ref": "#/$defs/Website",
   "$defs": {
-    "Telephone": {
+    "Website": {
       "properties": {
         "uuid": {
           "$ref": "https://gobl.org/draft-0/uuid/uuid",
@@ -15,17 +15,23 @@
           "title": "Label",
           "description": "Identifier for this number."
         },
-        "num": {
+        "title": {
           "type": "string",
-          "title": "Number",
-          "description": "The number to be dialed in ITU E.164 international format."
+          "title": "Title",
+          "description": "Title of the website to help distinguish between this and other links."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "title": "URL",
+          "description": "URL for the website."
         }
       },
       "type": "object",
       "required": [
-        "num"
+        "url"
       ],
-      "description": "Telephone describes what is expected for a telephone number."
+      "description": "Website describes what is expected for a web address."
     }
   },
   "$comment": "Generated with GOBL v0.53.0"
