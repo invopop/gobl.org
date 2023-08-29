@@ -192,16 +192,6 @@
           "title": "UUID",
           "description": "Unique document ID. Not required, but always recommended in addition to the Code."
         },
-        "series": {
-          "type": "string",
-          "title": "Series",
-          "description": "Used as a prefix to group codes."
-        },
-        "code": {
-          "type": "string",
-          "title": "Code",
-          "description": "Sequential code used to identify this invoice in tax declarations."
-        },
         "type": {
           "$ref": "https://gobl.org/draft-0/cbc/key",
           "oneOf": [
@@ -232,38 +222,24 @@
             }
           ],
           "title": "Type",
-          "description": "Type of invoice document subject to the requirements of the local tax regime."
+          "description": "Type of invoice document subject to the requirements of the local tax regime.",
+          "calculated": true
         },
-        "currency": {
-          "$ref": "https://gobl.org/draft-0/currency/code",
-          "title": "Currency",
-          "description": "Currency for all invoice totals."
+        "series": {
+          "type": "string",
+          "title": "Series",
+          "description": "Used as a prefix to group codes."
         },
-        "exchange_rates": {
-          "items": {
-            "$ref": "https://gobl.org/draft-0/currency/exchange-rate"
-          },
-          "type": "array",
-          "title": "Exchange Rates",
-          "description": "Exchange rates to be used when converting the invoices monetary values into other currencies."
-        },
-        "tax": {
-          "$ref": "#/$defs/Tax",
-          "title": "Tax",
-          "description": "Special tax configuration for billing."
-        },
-        "preceding": {
-          "items": {
-            "$ref": "#/$defs/Preceding"
-          },
-          "type": "array",
-          "title": "Preceding Details",
-          "description": "Key information regarding previous invoices and potentially details as to why they\nwere corrected."
+        "code": {
+          "type": "string",
+          "title": "Code",
+          "description": "Sequential code used to identify this invoice in tax declarations."
         },
         "issue_date": {
           "$ref": "https://gobl.org/draft-0/cal/date",
           "title": "Issue Date",
-          "description": "When the invoice was created."
+          "description": "When the invoice was created.",
+          "calculated": true
         },
         "op_date": {
           "$ref": "https://gobl.org/draft-0/cal/date",
@@ -274,6 +250,33 @@
           "$ref": "https://gobl.org/draft-0/cal/date",
           "title": "Value Date",
           "description": "When the taxes of this invoice become accountable, if none set, the issue date is used."
+        },
+        "currency": {
+          "$ref": "https://gobl.org/draft-0/currency/code",
+          "title": "Currency",
+          "description": "Currency for all invoice totals.",
+          "calculated": true
+        },
+        "exchange_rates": {
+          "items": {
+            "$ref": "https://gobl.org/draft-0/currency/exchange-rate"
+          },
+          "type": "array",
+          "title": "Exchange Rates",
+          "description": "Exchange rates to be used when converting the invoices monetary values into other currencies."
+        },
+        "preceding": {
+          "items": {
+            "$ref": "#/$defs/Preceding"
+          },
+          "type": "array",
+          "title": "Preceding Details",
+          "description": "Key information regarding previous invoices and potentially details as to why they\nwere corrected."
+        },
+        "tax": {
+          "$ref": "#/$defs/Tax",
+          "title": "Tax",
+          "description": "Special tax configuration for billing."
         },
         "supplier": {
           "$ref": "https://gobl.org/draft-0/org/party",
@@ -354,10 +357,10 @@
       },
       "type": "object",
       "required": [
-        "code",
         "type",
-        "currency",
+        "code",
         "issue_date",
+        "currency",
         "supplier",
         "totals"
       ],
@@ -802,5 +805,5 @@
       "description": "Totals contains the summaries of all calculations for the invoice."
     }
   },
-  "$comment": "Generated with GOBL v0.53.0"
+  "$comment": "Generated with GOBL v0.55.0"
 }
