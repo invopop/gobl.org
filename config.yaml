@@ -23,8 +23,8 @@ params:
     nav:
       - title: Home
         url: /
-      - title: Posts
-        url: /posts/
+    # - title: Posts
+    #    url: /posts/
     socials:
       - icon: invopop
         url: https://invopop.com
