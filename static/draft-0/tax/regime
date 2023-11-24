@@ -7,15 +7,23 @@
       "properties": {
         "code": {
           "$ref": "https://gobl.org/draft-0/cbc/code",
-          "title": "Code"
+          "title": "Code",
+          "description": "Code to be used in documents"
         },
         "name": {
           "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Name"
+          "title": "Name",
+          "description": "Short name of the category to be used instead of code in output"
+        },
+        "title": {
+          "$ref": "https://gobl.org/draft-0/i18n/string",
+          "title": "Title",
+          "description": "Human name for the code to use for titles"
         },
         "desc": {
           "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Description"
+          "title": "Description",
+          "description": "Useful description of the category."
         },
         "retained": {
           "type": "boolean",
@@ -93,6 +101,57 @@
       ],
       "description": "CodeDefinition describes a specific code and how it maps to a human name and description if appropriate."
     },
+    "CorrectionDefinition": {
+      "properties": {
+        "schema": {
+          "type": "string",
+          "title": "Schema",
+          "description": "Partial or complete schema URL for the document type supported by correction."
+        },
+        "types": {
+          "items": {
+            "$ref": "https://gobl.org/draft-0/cbc/key"
+          },
+          "type": "array",
+          "title": "Types",
+          "description": "The types of sub-documents supported by the regime"
+        },
+        "methods": {
+          "items": {
+            "$ref": "#/$defs/KeyDefinition"
+          },
+          "type": "array",
+          "title": "Methods",
+          "description": "Methods describe the methods used to correct an invoice."
+        },
+        "changes": {
+          "items": {
+            "$ref": "#/$defs/KeyDefinition"
+          },
+          "type": "array",
+          "title": "Changes",
+          "description": "List of change keys that can be used to describe what has been corrected."
+        },
+        "reason_required": {
+          "type": "boolean",
+          "title": "Reason Required",
+          "description": "ReasonRequired when true implies that a reason must be provided"
+        },
+        "stamps": {
+          "items": {
+            "$ref": "https://gobl.org/draft-0/cbc/key"
+          },
+          "type": "array",
+          "title": "Stamps",
+          "description": "Stamps that must be copied from the preceding document."
+        }
+      },
+      "type": "object",
+      "required": [
+        "schema"
+      ],
+      "description": "CorrectionDefinition contains details about what can be defined in ."
+    },
     "KeyDefinition": {
       "properties": {
         "key": {
@@ -103,7 +162,7 @@
         "name": {
           "$ref": "https://gobl.org/draft-0/i18n/string",
           "title": "Name",
-          "description": "Short name for the key, if relevant."
+          "description": "Short name for the key."
         },
         "desc": {
           "$ref": "https://gobl.org/draft-0/i18n/string",
@@ -126,47 +185,10 @@
       },
       "type": "object",
       "required": [
-        "key"
+        "key",
+        "name"
       ],
       "description": "KeyDefinition defines properties of a key that is specific for a regime."
-    },
-    "PrecedingDefinitions": {
-      "properties": {
-        "types": {
-          "items": {
-            "$ref": "https://gobl.org/draft-0/cbc/key"
-          },
-          "type": "array",
-          "title": "Types",
-          "description": "The types of sub-documents supported by the regime"
-        },
-        "stamps": {
-          "items": {
-            "$ref": "https://gobl.org/draft-0/cbc/key"
-          },
-          "type": "array",
-          "title": "Stamps",
-          "description": "Stamps that must be copied from the preceding document."
-        },
-        "corrections": {
-          "items": {
-            "$ref": "#/$defs/KeyDefinition"
-          },
-          "type": "array",
-          "title": "Corrections",
-          "description": "Corrections contains a list of all the keys that can be used to identify a correction."
-        },
-        "correction_methods": {
-          "items": {
-            "$ref": "#/$defs/KeyDefinition"
-          },
-          "type": "array",
-          "title": "Correction Methods",
-          "description": "CorrectionMethods describe the methods used to correct an invoice."
-        }
-      },
-      "type": "object",
-      "description": "PrecedingDefinitions contains details about what can be defined in Invoice preceding document data."
     },
     "Rate": {
       "properties": {
@@ -268,6 +290,11 @@
           "title": "Name",
           "description": "Name of the country"
         },
+        "description": {
+          "$ref": "https://gobl.org/draft-0/i18n/string",
+          "title": "Description",
+          "description": "Introductory details about the regime."
+        },
         "time_zone": {
           "type": "string",
           "title": "Time Zone",
@@ -282,14 +309,6 @@
           "$ref": "https://gobl.org/draft-0/l10n/code",
           "title": "Zone",
           "description": "Specific Locality, region, city, province, county, or similar code inside\nthe country, if needed."
-        },
-        "zones": {
-          "items": {
-            "$ref": "#/$defs/Zone"
-          },
-          "type": "array",
-          "title": "Zones",
-          "description": "List of sub-zones inside a country."
         },
         "currency": {
           "$ref": "https://gobl.org/draft-0/currency/code",
@@ -344,6 +363,14 @@
           "title": "Item Keys",
           "description": "ItemKeys specific for the regime that need to be added to `org.Item` data\nin line rows."
         },
+        "inbox_keys": {
+          "items": {
+            "$ref": "#/$defs/KeyDefinition"
+          },
+          "type": "array",
+          "title": "Inbox Keys",
+          "description": "InboxKeys specific to the regime that can be used to identify where a document\nshould be forwarded to."
+        },
         "scenarios": {
           "items": {
             "$ref": "#/$defs/ScenarioSet"
@@ -352,10 +379,13 @@
           "title": "Scenarios",
           "description": "Sets of scenario definitions for the regime."
         },
-        "preceding": {
-          "$ref": "#/$defs/PrecedingDefinitions",
-          "title": "Preceding",
-          "description": "Configuration details for preceding options."
+        "corrections": {
+          "items": {
+            "$ref": "#/$defs/CorrectionDefinition"
+          },
+          "type": "array",
+          "title": "Corrections",
+          "description": "Configuration details for corrections to be used with correction options."
         },
         "categories": {
           "items": {
@@ -364,6 +394,13 @@
           "type": "array",
           "title": "Categories",
           "description": "List of tax categories."
+        },
+        "zones": {
+          "items": {
+            "$ref": "#/$defs/Zone"
+          },
+          "type": "array",
+          "description": "List of zones to identify specific areas, regions, or provinces inside a country\ntha may be required for tax purposes."
         }
       },
       "type": "object",
@@ -501,5 +538,5 @@
       "description": "Zone represents an area inside a country, like a province or a state, which shares the basic definitions of the country, but may vary in some validation rules."
     }
   },
-  "$comment": "Generated with GOBL v0.56.0"
+  "$comment": "Generated with GOBL v0.63.0"
 }

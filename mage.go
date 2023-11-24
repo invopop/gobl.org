@@ -16,7 +16,7 @@ import (
 const (
 	name           = "gobl-org"
 	runImage       = "klakegg/hugo:0.80.0-ext-alpine"
-	goblSchemaPath = "../gobl/build/schemas"
+	goblSchemaPath = "../gobl/data/schemas"
 	schemaOutPath  = "./static/draft-0"
 
 	schemaDraft201909         = "https://json-schema.org/draft/2019-09/schema"
