@@ -33,7 +33,7 @@
         "rate_required": {
           "type": "boolean",
           "title": "Rate Required",
-          "description": "RateRequired when true implies that when a tax combo is defined using\nthis category that one of the rates must be defined."
+          "description": "RateRequired when true implies that when a tax combo is defined using\nthis category that one of the rate's keys must be defined. This is\nnormally needed for regimes that categorize taxes in local document\nformats as opposed to grouping by percentage values."
         },
         "rates": {
           "items": {
@@ -49,7 +49,7 @@
           },
           "type": "array",
           "title": "Extensions",
-          "description": "Extensions defines a list of keys for codes to use as an alternative to choosing a\nrate for the tax category. Every key must be defined in the Regime's extensions\ntable."
+          "description": "Extensions defines a list of extension keys that may be used or required\nas an alternative or alongside choosing a rate for the tax category.\nEvery key must be defined in the Regime's extensions table."
         },
         "map": {
           "$ref": "https://gobl.org/draft-0/cbc/code-map",
@@ -77,30 +77,6 @@
       ],
       "description": "Category contains the definition of a general type of tax inside a region."
     },
-    "CodeDefinition": {
-      "properties": {
-        "code": {
-          "$ref": "https://gobl.org/draft-0/cbc/code",
-          "title": "Code",
-          "description": "Code for which the definition is for."
-        },
-        "name": {
-          "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Name",
-          "description": "Short name for the code, if relevant."
-        },
-        "desc": {
-          "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Description",
-          "description": "Description offering more details about when the code should be used."
-        }
-      },
-      "type": "object",
-      "required": [
-        "code"
-      ],
-      "description": "CodeDefinition describes a specific code and how it maps to a human name and description if appropriate."
-    },
     "CorrectionDefinition": {
       "properties": {
         "schema": {
@@ -116,21 +92,13 @@
           "title": "Types",
           "description": "The types of sub-documents supported by the regime"
         },
-        "methods": {
+        "extensions": {
           "items": {
-            "$ref": "#/$defs/KeyDefinition"
+            "$ref": "https://gobl.org/draft-0/cbc/key"
           },
           "type": "array",
-          "title": "Methods",
-          "description": "Methods describe the methods used to correct an invoice."
-        },
-        "changes": {
-          "items": {
-            "$ref": "#/$defs/KeyDefinition"
-          },
-          "type": "array",
-          "title": "Changes",
-          "description": "List of change keys that can be used to describe what has been corrected."
+          "title": "Extensions",
+          "description": "Extension keys that can be included"
         },
         "reason_required": {
           "type": "boolean",
@@ -151,44 +119,6 @@
         "schema"
       ],
       "description": "CorrectionDefinition contains details about what can be defined in ."
-    },
-    "KeyDefinition": {
-      "properties": {
-        "key": {
-          "$ref": "https://gobl.org/draft-0/cbc/key",
-          "title": "Key",
-          "description": "Actual key value."
-        },
-        "name": {
-          "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Name",
-          "description": "Short name for the key."
-        },
-        "desc": {
-          "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Description",
-          "description": "Description offering more details about when the key should be used."
-        },
-        "codes": {
-          "items": {
-            "$ref": "#/$defs/CodeDefinition"
-          },
-          "type": "array",
-          "title": "Codes",
-          "description": "Codes describes the list of codes that can be used alongside the Key,\nfor example with identities."
-        },
-        "map": {
-          "$ref": "https://gobl.org/draft-0/cbc/code-map",
-          "title": "Map",
-          "description": "Map helps map local keys to specific codes, useful for converting the\ndescribed key into a local code."
-        }
-      },
-      "type": "object",
-      "required": [
-        "key",
-        "name"
-      ],
-      "description": "KeyDefinition defines properties of a key that is specific for a regime."
     },
     "Rate": {
       "properties": {
@@ -248,13 +178,13 @@
     },
     "RateValue": {
       "properties": {
-        "zones": {
+        "tags": {
           "items": {
-            "$ref": "https://gobl.org/draft-0/l10n/code"
+            "$ref": "https://gobl.org/draft-0/cbc/key"
           },
           "type": "array",
-          "title": "Zones",
-          "description": "Only use this value if one of the zones matches."
+          "title": "Tags",
+          "description": "Only apply this rate if one of the tags is present in the invoice."
         },
         "since": {
           "$ref": "https://gobl.org/draft-0/cal/date",
@@ -317,7 +247,7 @@
         },
         "tags": {
           "items": {
-            "$ref": "#/$defs/KeyDefinition"
+            "$ref": "https://gobl.org/draft-0/cbc/key-definition"
           },
           "type": "array",
           "title": "Tags",
@@ -325,7 +255,7 @@
         },
         "identity_types": {
           "items": {
-            "$ref": "#/$defs/KeyDefinition"
+            "$ref": "https://gobl.org/draft-0/cbc/key-definition"
           },
           "type": "array",
           "title": "Identity Types",
@@ -333,7 +263,7 @@
         },
         "extensions": {
           "items": {
-            "$ref": "#/$defs/KeyDefinition"
+            "$ref": "https://gobl.org/draft-0/cbc/key-definition"
           },
           "type": "array",
           "title": "Extensions",
@@ -341,7 +271,7 @@
         },
         "charge_types": {
           "items": {
-            "$ref": "#/$defs/KeyDefinition"
+            "$ref": "https://gobl.org/draft-0/cbc/key-definition"
           },
           "type": "array",
           "title": "Charge Types",
@@ -349,23 +279,15 @@
         },
         "payment_means": {
           "items": {
-            "$ref": "#/$defs/KeyDefinition"
+            "$ref": "https://gobl.org/draft-0/cbc/key-definition"
           },
           "type": "array",
           "title": "Payment Means",
           "description": "PaymentMeansKeys specific for the regime that extend the original\nbase payment means keys."
         },
-        "item_keys": {
-          "items": {
-            "$ref": "#/$defs/KeyDefinition"
-          },
-          "type": "array",
-          "title": "Item Keys",
-          "description": "ItemKeys specific for the regime that need to be added to `org.Item` data\nin line rows."
-        },
         "inbox_keys": {
           "items": {
-            "$ref": "#/$defs/KeyDefinition"
+            "$ref": "https://gobl.org/draft-0/cbc/key-definition"
           },
           "type": "array",
           "title": "Inbox Keys",
@@ -376,8 +298,7 @@
             "$ref": "#/$defs/ScenarioSet"
           },
           "type": "array",
-          "title": "Scenarios",
-          "description": "Sets of scenario definitions for the regime."
+          "title": "Scenarios"
         },
         "corrections": {
           "items": {
@@ -394,13 +315,6 @@
           "type": "array",
           "title": "Categories",
           "description": "List of tax categories."
-        },
-        "zones": {
-          "items": {
-            "$ref": "#/$defs/Zone"
-          },
-          "type": "array",
-          "description": "List of zones to identify specific areas, regions, or provinces inside a country\ntha may be required for tax purposes."
         }
       },
       "type": "object",
@@ -497,46 +411,6 @@
         "url"
       ],
       "description": "Source describes where the information for the taxes comes from."
-    },
-    "Zone": {
-      "properties": {
-        "code": {
-          "$ref": "https://gobl.org/draft-0/l10n/code",
-          "title": "Code",
-          "description": "Unique zone code."
-        },
-        "name": {
-          "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Name",
-          "description": "Name of the zone to be use if a locality or region is not applicable."
-        },
-        "locality": {
-          "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Locality",
-          "description": "Village, town, district, or city name which should coincide with\naddress data."
-        },
-        "region": {
-          "$ref": "https://gobl.org/draft-0/i18n/string",
-          "title": "Region",
-          "description": "Province, county, or state which should match address data."
-        },
-        "codes": {
-          "$ref": "https://gobl.org/draft-0/cbc/code-map",
-          "title": "Codes",
-          "description": "Codes defines a set of regime specific code mappings."
-        },
-        "meta": {
-          "$ref": "https://gobl.org/draft-0/cbc/meta",
-          "title": "Meta",
-          "description": "Any additional information"
-        }
-      },
-      "type": "object",
-      "required": [
-        "code"
-      ],
-      "description": "Zone represents an area inside a country, like a province or a state, which shares the basic definitions of the country, but may vary in some validation rules."
     }
-  },
-  "$comment": "Generated with GOBL v0.64.0"
+  }
 }

@@ -216,12 +216,12 @@
             {
               "const": "corrective",
               "title": "Corrective",
-              "description": "Corrected invoice that completely replaces the preceding document."
+              "description": "Corrected invoice that completely *replaces* the preceding document."
             },
             {
               "const": "credit-note",
               "title": "Credit Note",
-              "description": "Reflects a refund either partial or complete of the preceding document."
+              "description": "Reflects a refund either partial or complete of the preceding document. A \ncredit note effectively *extends* the previous document."
             },
             {
               "const": "debit-note",
@@ -235,11 +235,13 @@
         },
         "series": {
           "type": "string",
+          "pattern": "^([A-Za-z0-9][A-Za-z0-9 /\\._-]?)*[A-Za-z0-9]$",
           "title": "Series",
           "description": "Used as a prefix to group codes."
         },
         "code": {
           "type": "string",
+          "pattern": "^([A-Za-z0-9][A-Za-z0-9 /\\._-]?)*[A-Za-z0-9]$",
           "title": "Code",
           "description": "Sequential code used to identify this invoice in tax declarations."
         },
@@ -614,7 +616,7 @@
           "title": "Series",
           "description": "Series of the outlay invoice."
         },
-        "desc": {
+        "description": {
           "type": "string",
           "title": "Description",
           "description": "Details on what the outlay was."
@@ -633,7 +635,7 @@
       "type": "object",
       "required": [
         "i",
-        "desc",
+        "description",
         "amount"
       ],
       "description": "Outlay represents a reimbursable expense that was paid for by the supplier and invoiced separately by the third party directly to the customer."
@@ -674,13 +676,47 @@
           "title": "UUID",
           "description": "Preceding document's UUID if available can be useful for tracing."
         },
+        "type": {
+          "$ref": "https://gobl.org/draft-0/cbc/key",
+          "oneOf": [
+            {
+              "const": "standard",
+              "title": "Standard",
+              "description": "A regular commercial invoice document between a supplier and customer."
+            },
+            {
+              "const": "proforma",
+              "title": "Proforma",
+              "description": "For a clients validation before sending a final invoice."
+            },
+            {
+              "const": "corrective",
+              "title": "Corrective",
+              "description": "Corrected invoice that completely *replaces* the preceding document."
+            },
+            {
+              "const": "credit-note",
+              "title": "Credit Note",
+              "description": "Reflects a refund either partial or complete of the preceding document. A \ncredit note effectively *extends* the previous document."
+            },
+            {
+              "const": "debit-note",
+              "title": "Debit Note",
+              "description": "An additional set of charges to be added to the preceding document."
+            }
+          ],
+          "title": "Type",
+          "description": "Type of the preceding document"
+        },
         "series": {
           "type": "string",
+          "pattern": "^([A-Za-z0-9][A-Za-z0-9 /\\._-]?)*[A-Za-z0-9]$",
           "title": "Series",
           "description": "Series identification code"
         },
         "code": {
           "type": "string",
+          "pattern": "^([A-Za-z0-9][A-Za-z0-9 /\\._-]?)*[A-Za-z0-9]$",
           "title": "Code",
           "description": "Code of the previous document."
         },
@@ -702,23 +738,15 @@
           "title": "Stamps",
           "description": "Seals of approval from other organisations that may need to be listed."
         },
-        "correction_method": {
-          "$ref": "https://gobl.org/draft-0/cbc/key",
-          "title": "Correction Method",
-          "description": "Tax regime specific key reflecting the method used to correct the preceding invoice."
-        },
-        "changes": {
-          "items": {
-            "$ref": "https://gobl.org/draft-0/cbc/key"
-          },
-          "type": "array",
-          "title": "Changes",
-          "description": "Tax regime specific keys reflecting what has been changed from the previous invoice."
-        },
         "period": {
           "$ref": "https://gobl.org/draft-0/cal/period",
           "title": "Period",
           "description": "Tax period in which the previous invoice had an effect required by some tax regimes and formats."
+        },
+        "ext": {
+          "$ref": "https://gobl.org/draft-0/tax/extensions",
+          "title": "Ext",
+          "description": "Extensions for region specific requirements."
         },
         "meta": {
           "$ref": "https://gobl.org/draft-0/cbc/meta",
@@ -833,6 +861,5 @@
       ],
       "description": "Totals contains the summaries of all calculations for the invoice."
     }
-  },
-  "$comment": "Generated with GOBL v0.64.0"
+  }
 }
