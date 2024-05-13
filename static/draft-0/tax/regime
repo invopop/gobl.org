@@ -33,7 +33,7 @@
         "rate_required": {
           "type": "boolean",
           "title": "Rate Required",
-          "description": "RateRequired when true implies that when a tax combo is defined using\nthis category that one of the rate's keys must be defined. This is\nnormally needed for regimes that categorize taxes in local document\nformats as opposed to grouping by percentage values."
+          "description": "RateRequired when true implies that when a tax combo is defined using\nthis category that one of the rate's keys must be defined. This is\nnormally needed for regimes that categorize taxes in local document\nformats as opposed to grouping by percentage values.\nTry to avoid using this. It is better for rates to be determined\nby the percentage and conditions, not the rate key."
         },
         "rates": {
           "items": {
@@ -185,6 +185,11 @@
           "type": "array",
           "title": "Tags",
           "description": "Only apply this rate if one of the tags is present in the invoice."
+        },
+        "ext": {
+          "$ref": "https://gobl.org/draft-0/tax/extensions",
+          "title": "Extensions",
+          "description": "Ext map of keys that can be used to filter to determine if the rate applies."
         },
         "since": {
           "$ref": "https://gobl.org/draft-0/cal/date",
