@@ -14,7 +14,10 @@
         "label": {
           "type": "string",
           "title": "Label",
-          "description": "Useful identifier, such as home, work, etc."
+          "description": "Useful identifier, such as home, work, etc.",
+          "examples": [
+            "Office"
+          ]
         },
         "po_box": {
           "type": "string",
@@ -67,7 +70,7 @@
           "description": "Post or ZIP code."
         },
         "country": {
-          "$ref": "https://gobl.org/draft-0/l10n/country-code",
+          "$ref": "https://gobl.org/draft-0/l10n/iso-country-code",
           "title": "Country",
           "description": "ISO country code."
         },
@@ -83,10 +86,15 @@
         }
       },
       "type": "object",
-      "required": [
-        "locality"
-      ],
-      "description": "Address defines a globally acceptable set of attributes that describes a postal or fiscal address."
+      "description": "Address defines a globally acceptable set of attributes that describes a postal or fiscal address.",
+      "recommended": [
+        "number",
+        "street",
+        "locality",
+        "region",
+        "code",
+        "country"
+      ]
     }
   }
 }

@@ -5,9 +5,9 @@
   "$defs": {
     "Code": {
       "type": "string",
-      "maxLength": 24,
+      "maxLength": 32,
       "minLength": 1,
-      "pattern": "^[A-Z0-9]+([\\.\\-]?[A-Z0-9]+)*$",
+      "pattern": "^[A-Za-z0-9]+([\\.\\-\\/ _]?[A-Za-z0-9]+)*$",
       "title": "Code",
       "description": "Alphanumerical text identifier with upper-case letters, no whitespace, nor symbols."
     }

@@ -11,6 +11,14 @@
           "title": "UUID",
           "description": "Universally Unique Identifier."
         },
+        "label": {
+          "type": "string",
+          "title": "Label",
+          "description": "Label can be used to provide a custom label for the party in a given\ncontext in a single language, for example \"Supplier\", \"Host\", or similar.",
+          "examples": [
+            "Supplier"
+          ]
+        },
         "name": {
           "type": "string",
           "title": "Name",
@@ -97,7 +105,7 @@
         },
         "ext": {
           "$ref": "https://gobl.org/draft-0/tax/extensions",
-          "title": "Ext",
+          "title": "Extensions",
           "description": "Extension code map for any additional regime specific codes that may be required."
         },
         "meta": {
@@ -107,10 +115,11 @@
         }
       },
       "type": "object",
-      "required": [
-        "name"
-      ],
-      "description": "Party represents a person or business entity."
+      "description": "Party represents a person or business entity.",
+      "recommended": [
+        "name",
+        "tax_id"
+      ]
     }
   }
 }
