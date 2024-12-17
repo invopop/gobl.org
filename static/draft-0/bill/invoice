@@ -291,6 +291,10 @@
           "$ref": "https://gobl.org/draft-0/l10n/tax-country-code",
           "oneOf": [
             {
+              "const": "AE",
+              "title": "United Arab Emirates"
+            },
+            {
               "const": "AT",
               "title": "Austria"
             },
@@ -333,6 +337,10 @@
             {
               "const": "GB",
               "title": "United Kingdom"
+            },
+            {
+              "const": "IN",
+              "title": "India"
             },
             {
               "const": "IT",
@@ -384,6 +392,10 @@
               {
                 "const": "es-tbai-v1",
                 "title": "Spain TicketBAI"
+              },
+              {
+                "const": "es-verifactu-v1",
+                "title": "Spain Verifactu V1"
               },
               {
                 "const": "eu-en16931-v2017",
@@ -1062,11 +1074,6 @@
           "$ref": "https://gobl.org/draft-0/num/amount",
           "title": "Rounding",
           "description": "Rounding amount to apply to the invoice in case the total and payable\namounts don't quite match."
-        },
-        "outlays": {
-          "$ref": "https://gobl.org/draft-0/num/amount",
-          "title": "Outlay Totals",
-          "description": "Total paid in outlays that need to be reimbursed"
         },
         "payable": {
           "$ref": "https://gobl.org/draft-0/num/amount",
