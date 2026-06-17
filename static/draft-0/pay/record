@@ -1,10 +1,21 @@
 {
   "$schema": "http://json-schema.org/draft/2020-12/schema",
-  "$id": "https://gobl.org/draft-0/pay/instructions",
-  "$ref": "#/$defs/pay.Instructions",
+  "$id": "https://gobl.org/draft-0/pay/record",
+  "$ref": "#/$defs/pay.Record",
   "$defs": {
-    "pay.Instructions": {
+    "pay.Record": {
       "properties": {
+        "uuid": {
+          "type": "string",
+          "format": "uuid",
+          "title": "UUID",
+          "description": "Universally Unique Identifier."
+        },
+        "date": {
+          "$ref": "https://gobl.org/draft-0/cal/date",
+          "title": "Date",
+          "description": "When the payment was made."
+        },
         "key": {
           "$ref": "https://gobl.org/draft-0/cbc/key",
           "anyOf": [
@@ -94,35 +105,47 @@
             }
           ],
           "title": "Key",
-          "description": "The payment means expected or that have been arranged to be used to make the payment."
-        },
-        "detail": {
-          "type": "string",
-          "title": "Detail",
-          "description": "Optional text description of the payment method"
+          "description": "The payment means used."
         },
         "ref": {
-          "$ref": "https://gobl.org/draft-0/cbc/code",
+          "type": "string",
           "title": "Reference",
-          "description": "Remittance information or concept, a code value used to link the payment with the invoice."
+          "description": "ID or reference for the payment."
         },
-        "credit_transfer": {
-          "items": {
-            "$ref": "https://gobl.org/draft-0/pay/credit-transfer"
-          },
-          "type": "array",
-          "title": "Credit Transfer",
-          "description": "Instructions for sending payment via a bank transfer."
+        "description": {
+          "type": "string",
+          "title": "Description",
+          "description": "Description about the payment."
+        },
+        "percent": {
+          "$ref": "https://gobl.org/draft-0/num/percentage",
+          "title": "Percent",
+          "description": "Percentage of the total amount payable that was paid. Note that\nmultiple records with percentages may lead to rounding errors,\nespecially when the total sums to 100%. We recommend only including one\nrecord with a percent value per document."
+        },
+        "amount": {
+          "$ref": "https://gobl.org/draft-0/num/amount",
+          "title": "Amount",
+          "description": "How much was paid."
+        },
+        "currency": {
+          "$ref": "https://gobl.org/draft-0/currency/code",
+          "title": "Currency",
+          "description": "If different from the parent document's base currency."
         },
         "card": {
           "$ref": "https://gobl.org/draft-0/pay/card",
           "title": "Card",
-          "description": "Details of the payment that will be made via a credit or debit card."
+          "description": "Details of the payment that was made via a credit or debit card."
+        },
+        "credit_transfer": {
+          "$ref": "https://gobl.org/draft-0/pay/credit-transfer",
+          "title": "Credit Transfer",
+          "description": "Details about how the payment was made by credit (bank) transfer."
         },
         "direct_debit": {
           "$ref": "https://gobl.org/draft-0/pay/direct-debit",
           "title": "Direct Debit",
-          "description": "A group of terms that can be used by the customer or payer to consolidate direct debit payments."
+          "description": "Details of the payment that was made via direct debit."
         },
         "online": {
           "items": {
@@ -130,29 +153,24 @@
           },
           "type": "array",
           "title": "Online",
-          "description": "Array of online payment options"
-        },
-        "notes": {
-          "type": "string",
-          "title": "Notes",
-          "description": "Any additional instructions that may be required to make the payment."
+          "description": "Details of the payment that was made via an online provider."
         },
         "ext": {
           "$ref": "https://gobl.org/draft-0/tax/extensions",
           "title": "Extensions",
-          "description": "Extension key-pairs values defined by a tax regime."
+          "description": "Tax extensions required by tax regimes or addons."
         },
         "meta": {
           "$ref": "https://gobl.org/draft-0/cbc/meta",
           "title": "Meta",
-          "description": "Non-structured additional data that may be useful."
+          "description": "Additional details useful for the parties involved."
         }
       },
       "type": "object",
       "required": [
-        "key"
+        "amount"
       ],
-      "description": "Instructions determine how the payment has or should be made."
+      "description": "Record represents an individual payment transaction made via a specific means (cash, card, credit-transfer, etc.), with its own amount and optional currency."
     }
   }
 }
