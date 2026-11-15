@@ -1,109 +1,250 @@
 {{ define "main" }}
+{{- $gobl := hugo.Data.gobl -}}
+{{- $regimes := hugo.Data.regimes -}}
+{{- $addons := hugo.Data.addons -}}
+{{- $exports := where hugo.Data.formats "export" true -}}
 <div id="home">
-	<div class="intro">
-		<h1>Open source global invoicing in JSON</h1>
 
-		<p class="text-paleblue">
-			GOBL makes it easier to build, share, and convert invoices globally
-			with <a href="https://json-schema.org/" target="_blank">JSON Schema</a>.
+	<!-- Hero -->
+	<section class="intro">
+		<p class="eyebrow">Open source · Apache 2.0 · {{ $gobl.version }}</p>
+		<h1>One JSON invoice. Every format the world requires.</h1>
+
+		<p class="lead text-paleblue">
+			GOBL takes a simple business document and calculates the totals, checks it
+			against local tax rules in {{ $gobl.regimes }} countries, signs it, and
+			converts it into the formats tax authorities and networks expect.
 		</p>
 
-		<a class="btn" href="https://docs.gobl.org/">Learn more</a>
-	</div>
-
-	<div class="issues">
-		<h2>
-			The stakes are high when you're dealing with tax authorities, payments, countless rules, regulations, and formats:
-		</h2>
-
-		<div class="columns">
-			<p>
-				GOBL brings order to the chaos of global invoicing by providing a common language for developers to build on. 
-			</p>
-			<p>
-				Build efficient, compliant applications without the hassle of reinventing the wheel or figuring out XML.
-			</p>
-			<p>
-				Comply with local regulations by converting one single format into whatever is required locally.
-			</p>
+		<div class="actions">
+			<a class="btn" href="#try">Try it live</a>
+			<a class="link" href="https://docs.gobl.org/">Read the docs</a>
+			<a class="link" href="https://github.com/invopop/gobl" target="_blank">GitHub</a>
 		</div>
 
+		<ul class="stats">
+			<li><strong>{{ $gobl.regimes }}</strong> country tax regimes</li>
+			<li><strong>{{ $gobl.addons }}</strong> local and network addons</li>
+			<li><strong>{{ len $exports }}</strong> export formats in GOBL.dev</li>
+		</ul>
+	</section>
+
+	<!-- Live editor -->
+	<section id="try" class="try">
+		<h2>Try it now. Nothing to install.</h2>
 		<p>
-			We've experienced the pain of building invoicing systems for companies of all sizes, <mark>we believe there is a better way</mark>.
-		</p>
-	</div>
-
-	<div class="solution">
-		<h2>Everything you need to simplify electronic business documents, starting with invoices.</h2>
-
-		<dl class="large">
-			<dt>
-                <a href="https://docs.gobl.org/draft-0">
-					JSON Schema
-                </a>
-			</dt>
-			<dd>
-				Defines how to create Business Documents in JSON, the most pragmatic communication format created to date: easy to read by humans and computers alike.
-			</dd>
-			<dt>
-                <a href="https://github.com/invopop/gobl">
-				    Library and toolkit
-                </a>
-			</dt>
-			<dd>
-				Defines the structures and calculations required in code so that developers can focus on just getting the basics right.
-			</dd>
-			<dt>
-                <a href="https://github.com/invopop/gobl/tree/main/regimes">
-				    Global tax database
-                </a>
-			</dt>
-			<dd>
-				Contains local taxes and validation rules designed to reach every corner of the world.
-			</dd>
-			<dt>
-                <a href="https://docs.gobl.org/overview/tools">
-					Conversion tools
-                </a>
-			</dt>
-			<dd>
-				Create your invoices once using GOBL, and convert them into other local formats easily like: CFDI, UBL, FacturaE, FatturaPA.
-			</dd>
-			<dt>
-				<a href="https://github.com/invopop/gobl">
-					Open Source & Community
-				</a>
-			</dt>
-			<dd>
-				We believe in open source and the power of community. We're building GOBL with the help of developers around the world.
-			</dd>
-		</dl>
-	</div>
-
-	<div class="next-steps">
-		<h2>Simple, structured, and easy to share.</h2>
-
-		<p>
-			We envision a future where companies of any size or location can communicate electronically. Get started with GOBL today:
+			Pick an example from Mexico, Spain, Germany, Saudi Arabia and more. Build it to
+			see the totals calculated and the rules checked, or switch to <em>Convert</em> to
+			export it as UBL, CII, XRechnung, Factur-X, FacturaE or Peppol, and import those
+			formats back into GOBL.
 		</p>
 
+		<div class="embed" data-src="https://gobl.dev/">
+			<button type="button" class="embed-start">
+				<span class="btn">Open the GOBL editor</span>
+				<span class="text-paleblue">Loads GOBL.dev, the same API you can run yourself</span>
+			</button>
+		</div>
+		<p class="small text-paleblue">
+			Prefer a full window? Open <a href="https://gobl.dev/" target="_blank">gobl.dev</a>.
+		</p>
+	</section>
+
+	<!-- Outputs -->
+	<section class="outputs">
+		<h2>What comes out</h2>
+		<p>
+			Write your document once in GOBL's plain JSON, then turn it into whatever is required where you
+			sell. No XML, no EDI, no numeric code lists: GOBL uses readable keys such as
+			<code>credit-transfer</code> and handles the codes for you.
+		</p>
+
+		<div class="output-groups">
+			<div class="output">
+				<h3>Documents ready for local rules</h3>
+				<p>
+					Add an addon such as <code>mx-cfdi-v4</code> or <code>es-verifactu-v1</code> and GOBL
+					fills in the codes and checks the rules of that country or network, before anything
+					is sent.
+				</p>
+				<ul class="chips">
+					{{ range $addons }}<li title="{{ .key }}">{{ .name }}</li>{{ end }}
+				</ul>
+			</div>
+
+			<div class="output">
+				<h3>Standard formats, both ways</h3>
+				<p>
+					Export to the main European e-invoicing formats, and import them back into the
+					same GOBL JSON, embedded PDFs included.
+				</p>
+				<ul class="chips">
+					{{ range $exports }}<li title="{{ .key }}">{{ .name }}</li>{{ end }}
+				</ul>
+				<p class="small text-paleblue">
+					Open source converters for CFDI (Mexico), FatturaPA (Italy), KSeF (Poland),
+					VERI*FACTU and TicketBAI (Spain), and more are available as their own
+					<a href="https://github.com/invopop?q=gobl" target="_blank">GOBL projects</a>.
+				</p>
+			</div>
+
+			<div class="output">
+				<h3>And everything around the invoice</h3>
+				<dl>
+					<dt>Signed envelopes</dt>
+					<dd>JSON Web Signatures and a digest of the document, so any change is detected.</dd>
+					<dt>Corrections</dt>
+					<dd>Credit and debit notes generated from the original invoice, following each country's rules.</dd>
+					<dt>Printable versions</dt>
+					<dd>HTML ready for PDF with <a href="https://github.com/invopop/gobl.html" target="_blank">GOBL HTML</a>.</dd>
+					<dt>Clear errors</dt>
+					<dd>Every problem comes back with a rule code and the exact JSON path to fix.</dd>
+				</dl>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pipeline -->
+	<section class="pipeline">
+		<h2>What GOBL does to your data</h2>
+		<p>Send a partial document. Get back one that is complete, correct, and ready to share.</p>
+
+		<ol class="steps">
+			<li>
+				<h3>Normalize</h3>
+				<p>
+					Cleans up text, tax IDs, codes and units, and fills in the values that local rules
+					imply, so the same input always gives the same output.
+				</p>
+			</li>
+			<li>
+				<h3>Calculate</h3>
+				<p>
+					Totals, discounts, charges and taxes, with precise decimals and no rounding
+					errors, using the tax rates in force on the issue date.
+				</p>
+			</li>
+			<li>
+				<h3>Validate</h3>
+				<p>
+					Checks the schema, the tax ID check digits, and the rules of each country and
+					addon. Problems come back as faults with codes and JSON paths.
+				</p>
+			</li>
+			<li>
+				<h3>Sign</h3>
+				<p>
+					Wraps the document in an envelope with a digest and ES256 signatures, and keeps the
+					stamps and QR codes that tax authorities return.
+				</p>
+			</li>
+			<li>
+				<h3>Convert</h3>
+				<p>
+					Exports to local and international formats, and imports them back, detecting the
+					format automatically.
+				</p>
+			</li>
+		</ol>
+	</section>
+
+	<!-- Documents -->
+	<section class="documents">
+		<h2>More than invoices</h2>
 		<dl class="large">
-			<dt>
-				<a href="https://docs.gobl.org/">
-					Read the docs
-				</a>
-			</dt>
-			<dt>
-				<a href="https://github.com/invopop/gobl" target="_blank">
-					Contribute on GitHub
-				</a>
-			</dt>
-			<dt>
-				<a href="https://join.slack.com/t/goblschema/shared_invite/zt-20qu1s0cm-AUE8oYbGly681EsYdDiqxw" target="_blank">
-					Discuss on Slack
-				</a>
-			</dt>
+			<dt>Invoices</dt>
+			<dd>Standard, proforma, simplified and corrective invoices, with credit and debit notes.</dd>
+			<dt>Orders</dt>
+			<dd>Purchase and sales orders, quotes, and the references that link them to invoices.</dd>
+			<dt>Deliveries</dt>
+			<dd>Delivery notes and waybills, including returns and Incoterms®.</dd>
+			<dt>Payments</dt>
+			<dd>Payment requests, advices and receipts, with card, transfer, direct debit and online payment means.</dd>
+			<dt>Status</dt>
+			<dd>Responses and updates such as accepted, rejected or paid, used by clearance systems like France's CTC.</dd>
+			<dt>Parties and messages</dt>
+			<dd>Suppliers, customers and plain messages, as documents in their own right.</dd>
 		</dl>
-	</div>
+	</section>
+
+	<!-- Coverage -->
+	<section class="coverage">
+		<h2>Tax rules for {{ $gobl.regimes }} countries, and growing</h2>
+		<p>
+			Each country regime defines its tax categories and rates with their history, tax ID
+			validation, corrective document rules, and examples. Every release adds more.
+		</p>
+		<ul class="chips countries">
+			{{ range $regimes }}<li title="{{ .currency }}"><span class="code">{{ .country }}</span> {{ .name }}</li>{{ end }}
+		</ul>
+		<p class="small text-paleblue">
+			Missing your country? <a href="https://github.com/invopop/gobl/blob/main/CONTRIBUTING.md" target="_blank">Add it</a>,
+			it's mostly a set of rates and rules.
+		</p>
+	</section>
+
+	<!-- Ways to run -->
+	<section class="run">
+		<h2>Run it however you work</h2>
+		<dl class="large">
+			<dt><a href="https://github.com/invopop/gobl" target="_blank">Go library</a></dt>
+			<dd><code>go get github.com/invopop/gobl</code>: the core models, calculations and rules.</dd>
+			<dt><a href="https://github.com/invopop/gobl.dev" target="_blank">CLI</a></dt>
+			<dd><code>gobl build</code>, <code>validate</code>, <code>correct</code>, <code>sign</code>, <code>verify</code> and <code>convert</code> from your terminal or CI, with every addon and converter included.</dd>
+			<dt><a href="https://gobl.dev/v0/openapi.json" target="_blank">HTTP API</a></dt>
+			<dd>Run <code>gobl serve</code>, or add the handler to your own Go server, for the same API behind gobl.dev, described with OpenAPI.</dd>
+			<dt><a href="https://github.com/invopop/gobl.dev" target="_blank">MCP server</a></dt>
+			<dd>Let AI assistants and agents build, check and convert documents with <code>gobl mcp</code>, or the hosted <code>/v0/mcp</code> endpoint.</dd>
+			<dt><a href="https://github.com/invopop/gobl.dev/tree/main/wasm" target="_blank">In the browser</a></dt>
+			<dd>The same Go code, compiled to WebAssembly and packaged as <code>@invopop/gobl-worker</code> on npm.</dd>
+			<dt><a href="https://docs.gobl.org/draft-0" target="_blank">JSON Schema</a></dt>
+			<dd>Open schemas for every document, plus a <a href="https://github.com/invopop/gobl.ruby" target="_blank">Ruby gem</a> and generators for other languages.</dd>
+		</dl>
+	</section>
+
+	<!-- GOBL Net teaser -->
+	<section class="net">
+		<p class="eyebrow">Coming soon</p>
+		<h2>GOBL Net</h2>
+		<p>
+			Send signed GOBL documents straight to your customers and suppliers, using your own
+			domain as your address. No central operator: each business publishes its keys and
+			identity, verifiers confirm who is behind an address, and every envelope proves where
+			it came from.
+		</p>
+		<p class="small text-paleblue">
+			The draft specification is open on
+			<a href="https://github.com/invopop/gobl/tree/main/net" target="_blank">GitHub</a>.
+		</p>
+	</section>
+
+	<!-- Community -->
+	<section class="next-steps">
+		<h2>Open source, and used in production</h2>
+		<p>
+			GOBL is built by <a href="https://invopop.com" target="_blank">Invopop</a>, where it
+			runs every document on Invopop's e-invoicing platform, and by contributors around the world.
+			It's free to use under the Apache 2.0 licence.
+		</p>
+
+		<dl class="large">
+			<dt><a href="https://docs.gobl.org/">Read the docs</a></dt>
+			<dt><a href="https://github.com/invopop/gobl" target="_blank">Contribute on GitHub</a></dt>
+			<dt><a href="https://community.invopop.com/c/gobl" target="_blank">Join the community</a></dt>
+		</dl>
+	</section>
 </div>
+
+<script>
+	document.querySelectorAll('.embed').forEach(function (el) {
+		el.querySelector('.embed-start').addEventListener('click', function () {
+			var frame = document.createElement('iframe');
+			frame.src = el.dataset.src;
+			frame.title = 'GOBL editor';
+			frame.loading = 'lazy';
+			el.replaceChildren(frame);
+			el.classList.add('loaded');
+		});
+	});
+</script>
 {{ end }}

@@ -28,6 +28,11 @@
     }
   }
 
+  .links {
+    display: flex;
+    gap: 24px;
+  }
+
   a {
     font-size: 15px;
     letter-spacing: 1px;

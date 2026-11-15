@@ -1,0 +1,175 @@
+[
+  {
+    "key": "ar-arca-v4",
+    "name": "Argentina ARCA V4",
+    "region": "AR"
+  },
+  {
+    "key": "br-nfe-v4",
+    "name": "Brazil NF-e 4.00",
+    "region": "BR"
+  },
+  {
+    "key": "br-nfse-v1",
+    "name": "Brazil NFS-e 1.X",
+    "region": "BR"
+  },
+  {
+    "key": "co-dian-v2",
+    "name": "Colombia DIAN UBL 2.X",
+    "region": "CO"
+  },
+  {
+    "key": "de-xrechnung-v3",
+    "name": "German XRechnung 3.X",
+    "region": "DE",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "de-zugferd-v2",
+    "name": "German ZUGFeRD 2.X",
+    "region": "DE",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "dk-oioubl-v2",
+    "name": "Danish OIOUBL 2.1",
+    "region": "DK",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "es-facturae-v3",
+    "name": "Spain FacturaE",
+    "region": "ES"
+  },
+  {
+    "key": "es-sii-v1",
+    "name": "Spain SII V1.x",
+    "region": "ES"
+  },
+  {
+    "key": "es-tbai-v1",
+    "name": "Spain TicketBAI",
+    "region": "ES"
+  },
+  {
+    "key": "es-verifactu-v1",
+    "name": "Spain VERI*FACTU V1",
+    "region": "ES"
+  },
+  {
+    "key": "eu-en16931-v2017",
+    "name": "EN 16931-1:2017",
+    "region": "EU"
+  },
+  {
+    "key": "fi-finvoice-v3",
+    "name": "Finland Finvoice 3.0",
+    "region": "FI",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "fr-choruspro-v1",
+    "name": "Chorus Pro",
+    "region": "FR",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "fr-ctc-flow10-v1",
+    "name": "France CTC Flow 10 (E-Reporting)",
+    "region": "FR"
+  },
+  {
+    "key": "fr-ctc-flow2-v1",
+    "name": "France CTC Flow 2 (B2B Clearance)",
+    "region": "FR",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "fr-ctc-flow6-v1",
+    "name": "France CTC Flow 6 (Cycle de Vie)",
+    "region": "FR"
+  },
+  {
+    "key": "fr-facturx-v1",
+    "name": "French Factur-X v1",
+    "region": "FR",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "gr-mydata-v1",
+    "name": "Greece MyData v1.x",
+    "region": "GR"
+  },
+  {
+    "key": "it-sdi-v1",
+    "name": "Italy SDI FatturaPA v1.x",
+    "region": "IT"
+  },
+  {
+    "key": "it-ticket-v1",
+    "name": "Italy AdE ticket v1.x",
+    "region": "IT"
+  },
+  {
+    "key": "mx-cfdi-v4",
+    "name": "Mexican SAT CFDI v4.X",
+    "region": "MX"
+  },
+  {
+    "key": "peppol-bis-v3",
+    "name": "Peppol BIS Billing 3.0",
+    "region": "PEPPOL",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "peppol-pint-v1",
+    "name": "Peppol PINT",
+    "region": "PEPPOL",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "pl-favat-v3",
+    "name": "Polish KSeF FA_VAT FA(3)",
+    "region": "PL"
+  },
+  {
+    "key": "pt-saft-v1",
+    "name": "Portugal SAF-T",
+    "region": "PT"
+  },
+  {
+    "key": "ro-efactura-v1",
+    "name": "Romania RO e-Factura v1.x",
+    "region": "RO",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  },
+  {
+    "key": "sa-zatca-v1",
+    "name": "Saudi Arabia ZATCA",
+    "region": "SA",
+    "requires": [
+      "eu-en16931-v2017"
+    ]
+  }
+]

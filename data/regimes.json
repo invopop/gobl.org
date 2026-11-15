@@ -1,0 +1,177 @@
+[
+  {
+    "country": "AE",
+    "name": "United Arab Emirates",
+    "currency": "AED"
+  },
+  {
+    "country": "AR",
+    "name": "Argentina",
+    "currency": "ARS"
+  },
+  {
+    "country": "AT",
+    "name": "Austria",
+    "currency": "EUR"
+  },
+  {
+    "country": "AU",
+    "name": "Australia",
+    "currency": "AUD"
+  },
+  {
+    "country": "BE",
+    "name": "Belgium",
+    "currency": "EUR"
+  },
+  {
+    "country": "BR",
+    "name": "Brazil",
+    "currency": "BRL"
+  },
+  {
+    "country": "BS",
+    "name": "Commonwealth of The Bahamas",
+    "currency": "BSD"
+  },
+  {
+    "country": "CA",
+    "name": "Canada",
+    "currency": "CAD"
+  },
+  {
+    "country": "CH",
+    "name": "Switzerland",
+    "currency": "CHF"
+  },
+  {
+    "country": "CO",
+    "name": "Colombia",
+    "currency": "COP"
+  },
+  {
+    "country": "CR",
+    "name": "Costa Rica",
+    "currency": "CRC"
+  },
+  {
+    "country": "CZ",
+    "name": "Czech Republic",
+    "currency": "CZK"
+  },
+  {
+    "country": "DE",
+    "name": "Germany",
+    "currency": "EUR"
+  },
+  {
+    "country": "DK",
+    "name": "Denmark",
+    "currency": "DKK"
+  },
+  {
+    "country": "EL",
+    "name": "Greece",
+    "currency": "EUR"
+  },
+  {
+    "country": "ES",
+    "name": "Spain",
+    "currency": "EUR"
+  },
+  {
+    "country": "FI",
+    "name": "Finland",
+    "currency": "EUR"
+  },
+  {
+    "country": "FR",
+    "name": "France",
+    "currency": "EUR"
+  },
+  {
+    "country": "GB",
+    "name": "United Kingdom",
+    "currency": "GBP"
+  },
+  {
+    "country": "IE",
+    "name": "Ireland",
+    "currency": "EUR"
+  },
+  {
+    "country": "IN",
+    "name": "India",
+    "currency": "INR"
+  },
+  {
+    "country": "IT",
+    "name": "Italy",
+    "currency": "EUR"
+  },
+  {
+    "country": "MX",
+    "name": "Mexico",
+    "currency": "MXN"
+  },
+  {
+    "country": "NL",
+    "name": "The Netherlands",
+    "currency": "EUR"
+  },
+  {
+    "country": "NO",
+    "name": "Norway",
+    "currency": "NOK"
+  },
+  {
+    "country": "NZ",
+    "name": "New Zealand",
+    "currency": "NZD"
+  },
+  {
+    "country": "PE",
+    "name": "Peru",
+    "currency": "PEN"
+  },
+  {
+    "country": "PL",
+    "name": "Poland",
+    "currency": "PLN"
+  },
+  {
+    "country": "PT",
+    "name": "Portugal",
+    "currency": "EUR"
+  },
+  {
+    "country": "RO",
+    "name": "Romania",
+    "currency": "RON"
+  },
+  {
+    "country": "SA",
+    "name": "Kingdom of Saudi Arabia",
+    "currency": "SAR"
+  },
+  {
+    "country": "SE",
+    "name": "Sweden",
+    "currency": "SEK"
+  },
+  {
+    "country": "SG",
+    "name": "Singapore",
+    "currency": "SGD"
+  },
+  {
+    "country": "SK",
+    "name": "Slovakia",
+    "currency": "EUR"
+  },
+  {
+    "country": "US",
+    "name": "United States of America",
+    "currency": "USD"
+  }
+]
