@@ -2,11 +2,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-<title>GOBL</title>
-<meta name="description" content="Electronic business documents for the modern developer.">
+<title>{{ if .IsHome }}GOBL · One JSON invoice, every format{{ else }}{{ .Title }} · GOBL{{ end }}</title>
+<meta name="description" content="Open source JSON invoices for every country: calculate, validate, sign, and convert to the formats tax authorities require.">
 
 <meta property="og:title" content="GOBL" />
-<meta property="og:description" content="Electronic business documents for the modern developer." />
+<meta property="og:description" content="Open source JSON invoices for every country: calculate, validate, sign, and convert to the formats tax authorities require." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="{{ "/images/og-image.png" | absURL }}" />
 
@@ -19,8 +19,8 @@
 {{ end }}
 
 {{ $sass := resources.Get "styles/main.scss" }}
-{{ $style := $sass | resources.ToCSS }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ $style := $sass | css.Sass | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any">
 <link id="js-favicon" rel="icon" type="image/svg+xml" href="faviconDark.svg">

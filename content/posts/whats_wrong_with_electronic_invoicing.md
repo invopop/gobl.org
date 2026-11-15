@@ -8,7 +8,7 @@ tags = [
     "electronic invoicing",
 	"opinion"
 ]
-[_build]
+[build]
   list = false
   render = false
 +++

@@ -1,0 +1,345 @@
+[
+  {
+    "key": "cdar+fr-ctc-cdv-v1",
+    "name": "CDAR France CTC CDV",
+    "syntax": "cdar",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "status",
+      "payment"
+    ],
+    "import": true,
+    "export": true
+  },
+  {
+    "key": "cdar+fr-ctc-cdv-v1+ppf",
+    "name": "CDAR France CTC CDV for the PPF",
+    "syntax": "cdar",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "status",
+      "payment"
+    ],
+    "import": true,
+    "export": true
+  },
+  {
+    "key": "cii",
+    "name": "CII",
+    "syntax": "cii",
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": false
+  },
+  {
+    "key": "cii+cius-ro-v1",
+    "name": "CII CIUS-RO",
+    "syntax": "cii",
+    "countries": [
+      "RO"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": false
+  },
+  {
+    "key": "cii+de-xrechnung-v3",
+    "name": "CII XRechnung 3",
+    "syntax": "cii",
+    "countries": [
+      "DE"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+de-zugferd-v2",
+    "name": "CII ZUGFeRD EN 16931",
+    "syntax": "cii",
+    "countries": [
+      "DE"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+de-zugferd-v2+basic",
+    "name": "CII ZUGFeRD BASIC",
+    "syntax": "cii",
+    "countries": [
+      "DE"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true
+  },
+  {
+    "key": "cii+de-zugferd-v2+extended",
+    "name": "CII ZUGFeRD EXTENDED",
+    "syntax": "cii",
+    "countries": [
+      "DE"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+en16931-v2017",
+    "name": "CII EN 16931:2017",
+    "syntax": "cii",
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+fr-choruspro-v1",
+    "name": "CII Chorus Pro",
+    "syntax": "cii",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+fr-ctc-cius-v1",
+    "name": "CII France CTC CIUS",
+    "syntax": "cii",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+fr-ctc-extended-v1",
+    "name": "CII France CTC Extended",
+    "syntax": "cii",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+fr-ctc-facturx-cius-v1",
+    "name": "CII France CTC Factur-X CIUS",
+    "syntax": "cii",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+fr-ctc-facturx-extended-v1",
+    "name": "CII France CTC Factur-X EXTENDED",
+    "syntax": "cii",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+fr-facturx-v1",
+    "name": "CII Factur-X EN 16931",
+    "syntax": "cii",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+fr-facturx-v1+extended",
+    "name": "CII Factur-X EXTENDED",
+    "syntax": "cii",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "cii+peppol+bis-v3",
+    "name": "CII Peppol BIS Billing 3",
+    "syntax": "cii",
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "es-facturae-v3",
+    "name": "FacturaE 3.2.2",
+    "syntax": "facturae",
+    "countries": [
+      "ES"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true
+  },
+  {
+    "key": "ubl",
+    "name": "UBL",
+    "syntax": "ubl",
+    "documents": [
+      "invoice",
+      "status"
+    ],
+    "import": true,
+    "export": false
+  },
+  {
+    "key": "ubl+cius-ro-v1",
+    "name": "UBL CIUS-RO",
+    "syntax": "ubl",
+    "countries": [
+      "RO"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "ubl+de-xrechnung-v3",
+    "name": "UBL XRechnung 3",
+    "syntax": "ubl",
+    "countries": [
+      "DE"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "ubl+en16931-v2017",
+    "name": "UBL EN 16931:2017",
+    "syntax": "ubl",
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "ubl+fr-ctc-cius-v1",
+    "name": "UBL France CTC CIUS",
+    "syntax": "ubl",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "ubl+fr-ctc-extended-v1",
+    "name": "UBL France CTC Extended",
+    "syntax": "ubl",
+    "countries": [
+      "FR"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "ubl+peppol+bis-v3",
+    "name": "UBL Peppol BIS 3",
+    "syntax": "ubl",
+    "documents": [
+      "invoice",
+      "status"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  },
+  {
+    "key": "ubl+sa-zatca-v1",
+    "name": "UBL ZATCA",
+    "syntax": "ubl",
+    "countries": [
+      "SA"
+    ],
+    "documents": [
+      "invoice"
+    ],
+    "import": true,
+    "export": true,
+    "attachments": true
+  }
+]

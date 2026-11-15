@@ -1,5 +1,5 @@
 baseURL: https://gobl.org
-languageCode: en-us
+locale: en-US
 title: GOBL
 
 # Default content language, support en (English) / zh (Chinese) / nl (Dutch) / fr (French) / es (Spanish), default 'en'
@@ -8,7 +8,8 @@ defaultContentLanguage: en
 permalinks:
   posts: /posts/:title/
 
-paginate: 3
+pagination:
+  pagerSize: 3
 
 # Hugo Configure Markup
 # More info: https://gohugo.io/getting-started/configuration-markup#
@@ -23,6 +24,10 @@ params:
     nav:
       - title: Home
         url: /
+      - title: Docs
+        url: https://docs.gobl.org/
+      - title: Editor
+        url: https://gobl.dev/
     # - title: Posts
     #    url: /posts/
     socials:

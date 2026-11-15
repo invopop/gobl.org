@@ -1,76 +1,243 @@
 #home {
-  --gap: 40px;
+  --gap: 72px;
   --menu-height: #{$menu-height-mobile};
 
   @include desktop {
-    --gap: 100px;
+    --gap: 120px;
     --menu-height: #{$menu-height-desktop};
   }
 
   display: flex;
   flex-direction: column;
   gap: var(--gap);
+  padding-bottom: var(--gap);
 
-  > * {
-    padding-bottom: var(--menu-height);
-
+  > section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    scroll-margin-top: 24px;
 
-    &:first-child {
-      min-height: calc(100vh - var(--menu-height));
-    }
-
-    &:nth-child(2) {
-      margin-top: calc(-1 * var(--gap));
+    > p {
+      max-width: 680px;
+      margin-bottom: 32px;
     }
   }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.85em;
+    color: $white;
+    background: rgba($paleblue, 0.12);
+    border-radius: 4px;
+    padding: 1px 5px;
+  }
+
+  .eyebrow {
+    color: $blue;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .small {
+    font-size: 15px;
+    line-height: 21px;
+  }
+
+  // Hero
 
   .intro {
-    h1, p {
-      max-width: 630px;
+    min-height: calc(100vh - var(--menu-height));
+    justify-content: center;
+
+    h1, .lead {
+      max-width: 680px;
+    }
+
+    .lead {
+      margin-bottom: 40px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 32px;
+    margin-bottom: 56px;
+
+    .link {
+      font-size: 15px;
+      font-weight: 600;
+    }
+  }
+
+  .stats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 48px;
+    color: $paleblue;
+    font-size: 15px;
+
+    strong {
+      display: block;
+      color: $white;
+      font-size: 32px;
+      line-height: 38px;
+      font-weight: 400;
+    }
+  }
+
+  // Live editor
+
+  .embed {
+    width: 100%;
+    height: 70vh;
+    min-height: 480px;
+    max-height: 760px;
+    margin-bottom: 16px;
+    border: 1px solid rgba($paleblue, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba($navy, 0.6);
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: $white;
+    }
+  }
+
+  .embed-start {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  // Outputs
+
+  .output-groups {
+    display: grid;
+    gap: 56px;
+    width: 100%;
+  }
+
+  .output {
+    h3 {
+      margin-bottom: 8px;
+    }
+
+    > p {
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .chips + p {
+      margin-top: 20px;
+    }
+  }
+
+  .chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    li {
+      font-size: 14px;
+      line-height: 18px;
+      padding: 6px 12px;
+      border: 1px solid rgba($paleblue, 0.3);
+      border-radius: 999px;
+      color: $grey;
+    }
+
+    .code {
+      color: $blue;
+      margin-right: 4px;
+    }
+  }
+
+  .coverage .chips {
+    margin-bottom: 24px;
+  }
+
+  // Pipeline
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+
+    @include desktop {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    li {
+      counter-increment: step;
+      padding-top: 16px;
+      border-top: 1px solid rgba($paleblue, 0.3);
+
+      &::before {
+        content: "0" counter(step);
+        display: block;
+        color: $paleblue;
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+    }
+
+    h3 {
+      margin-bottom: 8px;
     }
 
     p {
-      margin: 0;
-      margin-bottom: 56px;
+      font-size: 15px;
+      line-height: 21px;
     }
   }
 
-  .issues {
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-      margin-bottom: 32px;
+  // GOBL Net teaser
 
-      @include desktop {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 54px;
-        margin-bottom: 54px;
-      }
-    }
+  .net {
+    padding: 32px;
+    border: 1px solid rgba($blue, 0.4);
+    border-radius: 8px;
+    background: rgba($blue, 0.05);
 
     @include desktop {
-      h2 {
-        margin-bottom: 40px;
-      }
+      padding: 48px;
+    }
+
+    > p:last-child {
+      margin-bottom: 0;
     }
   }
 
-  .solution {
-    @include desktop {
-      h2 {
-        margin-bottom: 40px;
-      }
-    }
-  }
-
-  .next-steps {
-    p {
-      margin-bottom: 32px;
-    }
+  .next-steps > p {
+    margin-bottom: 32px;
   }
 }
